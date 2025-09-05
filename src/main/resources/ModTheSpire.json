@@ -1,0 +1,14 @@
+{
+  "modid": "NoitaTheSpire",
+  "name": "NoitaTheSpire",
+  "author_list": [
+    "XM666"
+  ],
+  "description": "",
+  "version": "1.0-SNAPSHOT",
+  "sts_version": "12-22-2020",
+  "mts_version": "3.23.2",
+  "dependencies": [
+    "basemod"
+  ]
+}

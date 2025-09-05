@@ -1,0 +1,71 @@
+{
+  "NoitaTheSpire:Spark": {
+    "NAME": "火花",
+    "DESCRIPTION": "造成 !D! 点伤害。"
+  },
+  "NoitaTheSpire:RubberBall": {
+    "NAME": "弹跳爆发",
+    "DESCRIPTION": "造成 !D! 点伤害。 NL noitathespire:弹性 。"
+  },
+  "NoitaTheSpire:SpitterBolt": {
+    "NAME": "分裂弹",
+    "DESCRIPTION": "造成 !D! 点伤害。 NL 丢弃一张随机攻击牌。"
+  },
+  "NoitaTheSpire:EnergySphere": {
+    "NAME": "能量球体",
+    "DESCRIPTION": "造成 !D! 点伤害。 NL noitathespire:弱弹性 。"
+  },
+  "NoitaTheSpire:Levitate": {
+    "NAME": "浮空",
+    "DESCRIPTION": "获得 !B! 点 格挡 。"
+  },
+  "NoitaTheSpire:Kick": {
+    "NAME": "踢击",
+    "DESCRIPTION": "造成 !D! 点伤害。 NL 给予 !M! 层 虚弱 。"
+  },
+  "NoitaTheSpire:Chainsaw": {
+    "NAME": "链锯",
+    "DESCRIPTION": "造成 !D! 点伤害。 NL 丢弃一张随机攻击牌，若手牌中没有攻击牌，抽5张牌。 NL 获得1层 noitathespire:快速充能 。"
+  },
+  "NoitaTheSpire:BouncingSpells": {
+    "NAME": "弹跳的法术",
+    "DESCRIPTION": "每当你造成伤害时，给予 !M! 层 noitathespire:弹跳 。"
+  },
+  "NoitaTheSpire:HighManaLowCapacity": {
+    "NAME": "高法力，低容量",
+    "DESCRIPTION": "每回合开始时获得 [E] 。 NL 每次洗牌时，丢弃抽牌堆底部4张牌。",
+    "UPGRADE_DESCRIPTION": "每回合开始时获得 [E] [E] 。 NL 每次洗牌时，丢弃抽牌堆底部4张牌。"
+  },
+  "NoitaTheSpire:Infestation": {
+    "NAME": "侵扰",
+    "DESCRIPTION": "随机对敌人造成 !D! 点伤害 !M! 次。 NL 当前每有一名敌人，额外造成一次伤害。 NL 获得6层 noitathespire:弹跳 。 NL noitathespire:弹性 。"
+  },
+  "NoitaTheSpire:Wrap": {
+    "NAME": "回绕",
+    "DESCRIPTION": "选择 !M! 张牌，每次洗牌时将其放入抽牌堆顶部，并在本回合首次打出后回到你的手牌。"
+  },
+  "NoitaTheSpire:DoubleSpell": {
+    "NAME": "二重法术",
+    "DESCRIPTION": "抽 !M! 张牌。"
+  },
+  "NoitaTheSpire:QuadrupleSpell": {
+    "NAME": "四重法术",
+    "DESCRIPTION": "抽 !M! 张牌。"
+  },
+  "NoitaTheSpire:MyriadSpell": {
+    "NAME": "无尽法术",
+    "DESCRIPTION": "抽牌直到将手牌抽满或抽牌堆抽空。 NL 本回合抽牌堆抽空前，每打出或丢弃一张牌，抽一张牌。 NL 消耗 。"
+  },
+  "NoitaTheSpire:DoubleScatterSpell": {
+    "NAME": "二重散射法术",
+    "DESCRIPTION": "抽2张牌。 NL 丢弃 !M! 张抽到的随机攻击牌。"
+  },
+  "NoitaTheSpire:QuadrupleScatterSpell": {
+    "NAME": "四重散射法术",
+    "DESCRIPTION": "抽4张牌。 NL 丢弃 !M! 张抽到的随机攻击牌。"
+  },
+  "NoitaTheSpire:FormationOfHexagon": {
+    "NAME": "阵型 - 六边形",
+    "DESCRIPTION": "抽6张牌。 NL 丢弃 !M! 张抽到的随机攻击牌。"
+  }
+}

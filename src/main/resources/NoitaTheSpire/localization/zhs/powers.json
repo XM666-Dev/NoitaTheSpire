@@ -1,0 +1,44 @@
+{
+  "NoitaTheSpire:Bouncing": {
+    "NAME": "弹跳",
+    "DESCRIPTIONS": [
+      "每回合结束时，将 #b%s 层 #y弹跳 移到一名随机敌人身上，对其造成 #b%s 点伤害。 NL 在死亡时，将 #y弹跳 层数移到一名随机敌人身上。"
+    ]
+  },
+  "NoitaTheSpire:BouncingCast": {
+    "NAME": "弹跳的法术",
+    "DESCRIPTIONS": [
+      "每当你造成 #y伤害 时，给予 #b%s 层 #y弹跳 。"
+    ]
+  },
+  "NoitaTheSpire:FasterRecharge": {
+    "NAME": "快速充能",
+    "DESCRIPTIONS": [
+      "下一次 #y洗牌 时，抽 #b%s 张牌。"
+    ]
+  },
+  "NoitaTheSpire:HighMana": {
+    "NAME": "高法力",
+    "DESCRIPTIONS": [
+      "在你的回合开始时获得 %s 。"
+    ]
+  },
+  "NoitaTheSpire:LowCapacity": {
+    "NAME": "低容量",
+    "DESCRIPTIONS": [
+      "每次 #y洗牌 时，丢弃抽牌堆底部 #b%s 张牌。"
+    ]
+  },
+  "NoitaTheSpire:Wrapping": {
+    "NAME": "回绕",
+    "DESCRIPTIONS": [
+      "每次洗牌时将 #y%s 放入抽牌堆顶部，并在本回合首次打出后回到你的手牌。"
+    ]
+  },
+  "NoitaTheSpire:Myriad": {
+    "NAME": "无尽",
+    "DESCRIPTIONS": [
+      "本回合抽牌堆抽空前，每打出或丢弃一张牌，抽一张牌。"
+    ]
+  }
+}
