@@ -4,7 +4,6 @@ import basemod.abstracts.CustomCard;
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
-import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.xm666.noitathespire.actions.ScatterAction;
@@ -37,8 +36,11 @@ public class FormationOfHexagon extends CustomCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        AbstractDungeon.actionManager.addToBottom(
-                new DrawCardAction(6, new ScatterAction(magicNumber))
+        this.addToBot(
+                new DrawCardAction(6)
+        );
+        this.addToBot(
+                new ScatterAction(magicNumber)
         );
     }
 }

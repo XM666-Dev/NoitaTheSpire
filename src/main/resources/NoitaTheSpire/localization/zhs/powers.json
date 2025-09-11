@@ -2,7 +2,8 @@
   "NoitaTheSpire:Bouncing": {
     "NAME": "弹跳",
     "DESCRIPTIONS": [
-      "每回合结束时，将 #b%s 层 #y弹跳 移到一名随机敌人身上，对其造成 #b%s 点伤害。 NL 在死亡时，将 #y弹跳 层数移到一名随机敌人身上。"
+      "每回合结束时，将层数减少 #b2 并移到一名随机敌人身上，对其造成 #b%s 点伤害。 NL 在死亡时立即触发以上效果。",
+      "下回合结束时，对一名随机敌人造成 #b%s 点伤害。"
     ]
   },
   "NoitaTheSpire:BouncingCast": {
@@ -38,7 +39,19 @@
   "NoitaTheSpire:Myriad": {
     "NAME": "无尽",
     "DESCRIPTIONS": [
-      "本回合抽牌堆抽空前，每打出或丢弃一张牌，抽一张牌。"
+      "本回合抽牌堆抽空前，每打出一张牌，抽1张牌。"
+    ]
+  },
+  "NoitaTheSpire:MeleeCounter": {
+    "NAME": "反击",
+    "DESCRIPTIONS": [
+      "本回合结束时阻挡下一次你受到的攻击，并造成与所受到的伤害相等的反伤。"
+    ]
+  },
+  "NoitaTheSpire:Telekinetic": {
+    "NAME": "念动力",
+    "DESCRIPTIONS": [
+      "每回合开始时，打出的下 #b%s 张 #y动能 牌将触发其 #y动能 效果。"
     ]
   }
 }

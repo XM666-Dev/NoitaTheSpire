@@ -3,10 +3,10 @@ package com.xm666.noitathespire.characters;
 import basemod.abstracts.CustomPlayer;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
+import com.badlogic.gdx.math.MathUtils;
 import com.evacipated.cardcrawl.modthespire.lib.SpireEnum;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
-import com.megacrit.cardcrawl.cards.colorless.TheBomb;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.EnergyManager;
@@ -66,20 +66,20 @@ public class Mina extends CustomPlayer {
         }
         ArrayList<String> deck = new ArrayList<>();
         Spell[] spells = {
-                new Spell(Spark.ID, 5),
-                new Spell(RubberBall.ID, 5),
-                new Spell(SpitterBolt.ID, 5),
-                new Spell(EnergySphere.ID, 3)
+                new Spell(Strike.ID, 4),
+                new Spell(RubberBall.ID, 4),
+                new Spell(SpitterBolt.ID, 4),
+                new Spell(EnergySphere.ID, 2)
         };
         Spell spell = spells[0];
         for (int i = 0; i < spell.count; ++i) {
             deck.add(spell.id);
         }
-        for (int i = 0; i < 5; ++i) {
-            deck.add(Levitate.ID);
+        for (int i = 0; i < 4; ++i) {
+            deck.add(Defend.ID);
         }
         deck.add(Kick.ID);
-        deck.add(TheBomb.ID);
+        deck.add(Bomb.ID);
         return deck;
     }
 
@@ -115,7 +115,7 @@ public class Mina extends CustomPlayer {
 
     @Override
     public AbstractCard getStartCardForEvent() {
-        return new Spark();
+        return new Strike();
     }
 
     @Override
@@ -135,6 +135,7 @@ public class Mina extends CustomPlayer {
 
     @Override
     public void doCharSelectScreenSelectEffect() {
+        NoitaTheSpire.playAudioOutsideCombat("bullet_rocket_0", MathUtils.random(-0.2F, 0.2F));
         CardCrawlGame.screenShake.shake(ScreenShake.ShakeIntensity.MED, ScreenShake.ShakeDur.SHORT, false);
     }
 
@@ -184,7 +185,7 @@ public class Mina extends CustomPlayer {
 
     @Override
     public AbstractGameAction.AttackEffect[] getSpireHeartSlashEffect() {
-        return new AbstractGameAction.AttackEffect[]{AbstractGameAction.AttackEffect.SLASH_HEAVY, AbstractGameAction.AttackEffect.FIRE, AbstractGameAction.AttackEffect.SLASH_DIAGONAL, AbstractGameAction.AttackEffect.SLASH_HEAVY, AbstractGameAction.AttackEffect.FIRE, AbstractGameAction.AttackEffect.SLASH_DIAGONAL};
+        return new AbstractGameAction.AttackEffect[]{AbstractGameAction.AttackEffect.BLUNT_LIGHT, AbstractGameAction.AttackEffect.BLUNT_HEAVY, AbstractGameAction.AttackEffect.BLUNT_LIGHT, AbstractGameAction.AttackEffect.BLUNT_HEAVY, AbstractGameAction.AttackEffect.BLUNT_HEAVY, AbstractGameAction.AttackEffect.BLUNT_LIGHT};
     }
 
     public static class PlayerColorEnum {

@@ -9,6 +9,7 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.ImageMaster;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
+import com.xm666.noitathespire.actions.BouncyAction;
 import com.xm666.noitathespire.mod.NoitaTheSpire;
 import com.xm666.noitathespire.util.ModUtil;
 
@@ -45,6 +46,8 @@ public class BouncingCast extends AbstractPower {
         super.onAttack(info, damageAmount, target);
         this.flash();
         NoitaTheSpire.playAudio("bullet_bounce_0");
+        if (BouncyAction.isBouncy)
+            return;
         AbstractDungeon.actionManager.addToBottom(
                 new ApplyPowerAction(
                         target,

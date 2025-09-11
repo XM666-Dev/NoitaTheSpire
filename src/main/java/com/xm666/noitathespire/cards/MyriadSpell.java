@@ -5,7 +5,6 @@ import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
-import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.xm666.noitathespire.powers.Myriad;
@@ -38,10 +37,12 @@ public class MyriadSpell extends CustomCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        AbstractDungeon.actionManager.addToBottom(
-                new DrawCardAction(p.drawPile.size())
+        this.addToBot(
+                new DrawCardAction(
+                        p.drawPile.size()
+                )
         );
-        AbstractDungeon.actionManager.addToBottom(
+        this.addToBot(
                 new ApplyPowerAction(
                         p,
                         p,

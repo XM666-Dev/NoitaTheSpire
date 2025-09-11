@@ -2,7 +2,6 @@ package com.xm666.noitathespire.cards;
 
 import basemod.abstracts.CustomCard;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
-import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -10,8 +9,10 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.monsters.MonsterGroup;
+import com.xm666.noitathespire.actions.BouncyAction;
 import com.xm666.noitathespire.mod.NoitaTheSpire;
 import com.xm666.noitathespire.powers.Bouncing;
+import com.xm666.noitathespire.powers.BouncingCast;
 import com.xm666.noitathespire.util.ModUtil;
 
 import static com.xm666.noitathespire.characters.Mina.PlayerColorEnum.MINA_PURPLE;
@@ -37,7 +38,7 @@ public class Infestation extends CustomCard {
     @Override
     public void upgrade() {
         this.upgradeName();
-        this.upgradeMagicNumber(2);
+        this.upgradeMagicNumber(1);
     }
 
     @Override
@@ -52,18 +53,8 @@ public class Infestation extends CustomCard {
         }
         for (int i = 0; i < count; ++i) {
             AbstractMonster monster = monsters.getRandomMonster(true);
-            AbstractDungeon.actionManager.addToBottom(
-                    new ApplyPowerAction(
-                            monster,
-                            p,
-                            new Bouncing(
-                                    monster,
-                                    damage
-                            )
-                    )
-            );
-            AbstractDungeon.actionManager.addToBottom(
-                    new DamageAction(
+            this.addToBot(
+                    new BouncyAction(
                             monster,
                             new DamageInfo(
                                     p,
@@ -73,13 +64,14 @@ public class Infestation extends CustomCard {
             );
         }
         for (int i = 0; i < 3; ++i) {
-            AbstractDungeon.actionManager.addToBottom(
+            BouncingCast bouncingCast = (BouncingCast) p.getPower(BouncingCast.POWER_ID);
+            this.addToBot(
                     new ApplyPowerAction(
                             p,
                             p,
                             new Bouncing(
                                     p,
-                                    damage
+                                    damage + (bouncingCast != null ? bouncingCast.amount : 0)
                             )
                     )
             );

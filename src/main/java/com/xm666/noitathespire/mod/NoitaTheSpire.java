@@ -28,23 +28,23 @@ import static com.xm666.noitathespire.characters.Mina.PlayerColorEnum.MINA_PURPL
 
 @SpireInitializer
 public class NoitaTheSpire implements EditCharactersSubscriber, EditStringsSubscriber, EditCardsSubscriber, EditKeywordsSubscriber, AddAudioSubscriber {
-    public static final Color COLOR = new Color(0x9b6f9a);
+    public static final Color COLOR = new Color(0x9b6f9aff);
     private static final String CHARACTER_BUTTON = "NoitaTheSpire/characters/mina/characterButton.png";
     private static final String CHARACTER_PORTRAIT = "NoitaTheSpire/characters/mina/characterPortrait.jpg";
     private static final String BG_ATTACK_512 = "NoitaTheSpire/characters/mina/cardui/bg_attack_512.png";
-    private static final String BG_POWER_512 = "NoitaTheSpire/characters/mina/cardui/bg_power_512.png";
     private static final String BG_SKILL_512 = "NoitaTheSpire/characters/mina/cardui/bg_skill_512.png";
+    private static final String BG_POWER_512 = "NoitaTheSpire/characters/mina/cardui/bg_power_512.png";
     private static final String CARD_ORB_512 = "NoitaTheSpire/characters/mina/cardui/card_orb_512.png";
     private static final String BG_ATTACK_1024 = "NoitaTheSpire/characters/mina/cardui/bg_attack.png";
-    private static final String BG_POWER_1024 = "NoitaTheSpire/characters/mina/cardui/bg_power.png";
     private static final String BG_SKILL_1024 = "NoitaTheSpire/characters/mina/cardui/bg_skill.png";
+    private static final String BG_POWER_1024 = "NoitaTheSpire/characters/mina/cardui/bg_power.png";
     private static final String CARD_ORB_1024 = "NoitaTheSpire/characters/mina/cardui/card_orb.png";
     private static final String ENERGY_ORB = "NoitaTheSpire/characters/mina/cardui/energy_orb.png";
     private static final HashMap<String, Integer> audioCounts = new HashMap<>();
 
     public NoitaTheSpire() {
         BaseMod.subscribe(this);
-        BaseMod.addColor(MINA_PURPLE, COLOR, COLOR, COLOR, COLOR, COLOR, COLOR, COLOR, BG_ATTACK_512, BG_SKILL_512, BG_POWER_512, ENERGY_ORB, BG_ATTACK_1024, BG_SKILL_1024, BG_POWER_1024, CARD_ORB_1024, CARD_ORB_512);
+        BaseMod.addColor(MINA_PURPLE, COLOR, COLOR, COLOR, COLOR, COLOR, COLOR, COLOR, BG_ATTACK_512, BG_SKILL_512, BG_POWER_512, CARD_ORB_512, BG_ATTACK_1024, BG_SKILL_1024, BG_POWER_1024, CARD_ORB_1024, ENERGY_ORB);
     }
 
     public static void initialize() {
@@ -56,6 +56,13 @@ public class NoitaTheSpire implements EditCharactersSubscriber, EditStringsSubsc
             key += MathUtils.random(1, audioCounts.get(key));
         }
         AbstractDungeon.actionManager.addToBottom(new SFXAction(key));
+    }
+
+    public static void playAudioOutsideCombat(String key, float pitchAdjust) {
+        if (audioCounts.containsKey(key)) {
+            key += MathUtils.random(1, audioCounts.get(key));
+        }
+        CardCrawlGame.sound.playA(key, pitchAdjust);
     }
 
     @Override
@@ -100,6 +107,14 @@ public class NoitaTheSpire implements EditCharactersSubscriber, EditStringsSubsc
         addAudio("player_kick_0", 4);
         addAudio("spell_shoot_general_ver4_0", 3);
         addAudio("item_move_success");
+        addAudio("player_throw_0", 4);
+        addAudio("bullet_rocket_0", 3);
+        addAudio("jump_gravel_0", 3);
+        addAudio("land_gravel_0", 3);
+        addAudio("land_water_0", 3);
+        addAudio("rock_add_0", 4);
+        addAudio("start_0", 3);
+        addAudio("bomb_0", 3);
     }
 
     private Map<String, String> loadKeywords(String filepath) {

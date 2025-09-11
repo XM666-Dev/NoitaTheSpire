@@ -1,10 +1,10 @@
 package com.xm666.noitathespire.cards;
 
 import basemod.abstracts.CustomCard;
+import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
-import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.xm666.noitathespire.actions.LimitedBouncyAction;
@@ -39,13 +39,14 @@ public class EnergySphere extends CustomCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         NoitaTheSpire.playAudio("spell_shoot_general_ver6_0");
-        AbstractDungeon.actionManager.addToBottom(
+        this.addToBot(
                 new LimitedBouncyAction(
                         m,
                         new DamageInfo(
                                 p,
                                 damage
-                        )
+                        ),
+                        AbstractGameAction.AttackEffect.SLASH_DIAGONAL
                 )
         );
     }

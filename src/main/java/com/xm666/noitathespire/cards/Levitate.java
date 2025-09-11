@@ -4,7 +4,6 @@ import basemod.abstracts.CustomCard;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
-import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.xm666.noitathespire.mod.NoitaTheSpire;
@@ -21,13 +20,12 @@ public class Levitate extends CustomCard {
     private static final int COST = 1;
     private static final CardType TYPE = CardType.SKILL;
     private static final CardColor COLOR = MINA_PURPLE;
-    private static final CardRarity RARITY = CardRarity.BASIC;
+    private static final CardRarity RARITY = CardRarity.COMMON;
     private static final CardTarget TARGET = CardTarget.SELF;
 
     public Levitate() {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
-        this.block = this.baseBlock = 5;
-        this.tags.add(CardTags.STARTER_DEFEND);
+        this.block = this.baseBlock = 9;
     }
 
     @Override
@@ -39,7 +37,7 @@ public class Levitate extends CustomCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         NoitaTheSpire.playAudio("digger_create_0");
-        AbstractDungeon.actionManager.addToBottom(
+        this.addToBot(
                 new GainBlockAction(
                         p,
                         block

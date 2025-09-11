@@ -28,7 +28,7 @@ public class Bouncing extends AbstractPower {
 
     public Bouncing(AbstractCreature owner, int amount) {
         this.name = NAME;
-        this.ID = POWER_ID+idOffset++;
+        this.ID = POWER_ID + idOffset++;
         this.owner = owner;
         this.type = PowerType.BUFF;
 
@@ -41,14 +41,9 @@ public class Bouncing extends AbstractPower {
     }
 
     public void updateDescription() {
-        this.description = String.format(DESCRIPTIONS[0], getApplyAmount(), this.amount);
+        int applyAmount = getApplyAmount();
+        this.description = String.format(DESCRIPTIONS[applyAmount > 0 ? 0 : 1], this.amount);
     }
-
-    //@Override
-    //public void onInitialApplication() {
-    //    super.onInitialApplication();
-    //    this.ID = POWER_ID;
-    //}
 
     @Override
     public void atEndOfTurn(boolean isPlayer) {
@@ -63,6 +58,8 @@ public class Bouncing extends AbstractPower {
     }
 
     public void bounce() {
+        if (owner == null)
+            return;
         this.flash();
         NoitaTheSpire.playAudio("bullet_bounce_0");
         AbstractCreature originalOwner = owner;
@@ -80,7 +77,6 @@ public class Bouncing extends AbstractPower {
         if (applyAmount > 0) {
             owner = m;
             amount = applyAmount;
-            //ID = "";
             AbstractDungeon.actionManager.addToBottom(
                     new ApplyPowerAction(
                             m,
@@ -102,6 +98,6 @@ public class Bouncing extends AbstractPower {
     }
 
     private int getApplyAmount() {
-        return (int) (amount * 0.75);
+        return amount - 2;
     }
 }

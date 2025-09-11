@@ -1,17 +1,15 @@
 package com.xm666.noitathespire.cards;
 
 import basemod.abstracts.CustomCard;
+import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
-import com.megacrit.cardcrawl.actions.common.DiscardSpecificCardAction;
-import com.megacrit.cardcrawl.actions.common.DrawCardAction;
-import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
-import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.xm666.noitathespire.actions.ChainsawAction;
 import com.xm666.noitathespire.mod.NoitaTheSpire;
 import com.xm666.noitathespire.powers.FasterRecharge;
 import com.xm666.noitathespire.util.ModUtil;
@@ -33,6 +31,7 @@ public class Chainsaw extends CustomCard {
     public Chainsaw() {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         this.damage = this.baseDamage = 10;
+        this.magicNumber = this.baseMagicNumber = 5;
     }
 
     @Override
@@ -44,24 +43,20 @@ public class Chainsaw extends CustomCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         NoitaTheSpire.playAudio("digger_create_0");
-        AbstractDungeon.actionManager.addToBottom(
+        this.addToBot(
                 new DamageAction(
                         m,
                         new DamageInfo(
                                 p,
                                 this.damage
-                        )
+                        ),
+                        AbstractGameAction.AttackEffect.SLASH_HORIZONTAL
                 )
         );
-        AbstractCard randomAttackCard = ModUtil.getRandomAttackCardFromHand(this);
-        AbstractDungeon.actionManager.addToBottom(
-                randomAttackCard != null ? new DiscardSpecificCardAction(randomAttackCard) :
-                        new DrawCardAction(
-                                p,
-                                5
-                        )
+        this.addToBot(
+                new ChainsawAction(p, magicNumber)
         );
-        AbstractDungeon.actionManager.addToBottom(
+        this.addToBot(
                 new ApplyPowerAction(
                         p,
                         p,

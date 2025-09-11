@@ -4,7 +4,6 @@ import basemod.abstracts.CustomCard;
 import com.megacrit.cardcrawl.actions.utility.WaitAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
-import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.xm666.noitathespire.actions.WrapAction;
@@ -38,13 +37,13 @@ public class Wrap extends CustomCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        AbstractDungeon.actionManager.addToBottom(
+        this.addToBot(
                 new WrapAction(p, p, magicNumber)
         );
         for (int i = 0; i < magicNumber; ++i) {
             NoitaTheSpire.playAudio("item_move_success");
             if (i < magicNumber - 1)
-                AbstractDungeon.actionManager.addToBottom(
+                this.addToBot(
                         new WaitAction(0.25F)
                 );
         }

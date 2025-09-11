@@ -1,8 +1,11 @@
 package com.xm666.noitathespire.powers;
 
+import basemod.BaseMod;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
+import com.megacrit.cardcrawl.actions.utility.UseCardAction;
+import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -44,10 +47,7 @@ public class Myriad extends AbstractPower {
     public void onDrawOrDiscard() {
         super.onDrawOrDiscard();
         AbstractPlayer p = (AbstractPlayer) owner;
-        if (p == null)
-            return;
-        this.flash();
-        if (p.drawPile.isEmpty()) {
+        if (p != null && p.drawPile.isEmpty()) {
             AbstractDungeon.actionManager.addToBottom(
                     new RemoveSpecificPowerAction(
                             owner,
@@ -55,7 +55,15 @@ public class Myriad extends AbstractPower {
                             this
                     )
             );
-        } else {
+        }
+    }
+
+    @Override
+    public void onAfterUseCard(AbstractCard card, UseCardAction action) {
+        super.onAfterUseCard(card, action);
+        AbstractPlayer p = (AbstractPlayer) owner;
+        if (p != null && p.hand.size() < BaseMod.MAX_HAND_SIZE) {
+            this.flash();
             AbstractDungeon.actionManager.addToBottom(
                     new DrawCardAction(1)
             );

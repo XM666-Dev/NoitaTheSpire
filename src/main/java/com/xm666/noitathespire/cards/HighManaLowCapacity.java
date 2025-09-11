@@ -4,7 +4,6 @@ import basemod.abstracts.CustomCard;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
-import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.xm666.noitathespire.mod.NoitaTheSpire;
@@ -20,10 +19,10 @@ public class HighManaLowCapacity extends CustomCard {
     private static final String NAME = CARD_STRINGS.NAME;
     private static final String DESCRIPTION = CARD_STRINGS.DESCRIPTION;
     private static final String IMG_PATH = "NoitaTheSpire/cards/highManaLowCapacity.png";
-    private static final int COST = 0;
+    private static final int COST = 1;
     private static final CardType TYPE = CardType.POWER;
     private static final CardColor COLOR = MINA_PURPLE;
-    private static final CardRarity RARITY = CardRarity.UNCOMMON;
+    private static final CardRarity RARITY = CardRarity.RARE;
     private static final CardTarget TARGET = CardTarget.SELF;
 
     public HighManaLowCapacity() {
@@ -34,18 +33,16 @@ public class HighManaLowCapacity extends CustomCard {
     @Override
     public void upgrade() {
         this.upgradeName();
-        this.upgradeMagicNumber(1);
-        this.rawDescription = CARD_STRINGS.UPGRADE_DESCRIPTION;
-        this.initializeDescription();
+        this.upgradeBaseCost(0);
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         NoitaTheSpire.playAudio("perk_misc");
-        AbstractDungeon.actionManager.addToBottom(
+        this.addToBot(
                 new ApplyPowerAction(p, p, new HighMana(p, magicNumber))
         );
-        AbstractDungeon.actionManager.addToBottom(
+        this.addToBot(
                 new ApplyPowerAction(p, p, new LowCapacity(p, 4))
         );
     }

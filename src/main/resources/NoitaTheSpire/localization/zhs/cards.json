@@ -1,7 +1,11 @@
 {
-  "NoitaTheSpire:Spark": {
-    "NAME": "火花",
+  "NoitaTheSpire:Strike": {
+    "NAME": "打击",
     "DESCRIPTION": "造成 !D! 点伤害。"
+  },
+  "NoitaTheSpire:Defend": {
+    "NAME": "防御",
+    "DESCRIPTION": "获得 !B! 点格挡。"
   },
   "NoitaTheSpire:RubberBall": {
     "NAME": "弹跳爆发",
@@ -9,7 +13,7 @@
   },
   "NoitaTheSpire:SpitterBolt": {
     "NAME": "分裂弹",
-    "DESCRIPTION": "造成 !D! 点伤害。 NL 丢弃一张随机攻击牌。"
+    "DESCRIPTION": "造成 !D! 点伤害。 NL 丢弃 !M! 张随机攻击牌。"
   },
   "NoitaTheSpire:EnergySphere": {
     "NAME": "能量球体",
@@ -21,11 +25,50 @@
   },
   "NoitaTheSpire:Kick": {
     "NAME": "踢击",
-    "DESCRIPTION": "造成 !D! 点伤害。 NL 给予 !M! 层 虚弱 。"
+    "DESCRIPTION": " 保留 。 NL 造成 !D! 点伤害。 NL 给予 !M! 层 虚弱 。 NL noitathespire:踢击 。"
+  },
+  "NoitaTheSpire:Bomb": {
+    "NAME": "炸弹",
+    "DESCRIPTION": "在3回合结束后，对所有敌人造成 !M! 点伤害。 NL 消耗 。"
+  },
+  "NoitaTheSpire:DisarmKick": {
+    "NAME": "缴械踢击",
+    "DESCRIPTION": "造成 !D! 点伤害。 NL 给予 !M! 层 虚弱 。 NL 如果目标拥有非负层数的力量，使其失去 !B! 点力量。 NL noitathespire:踢击 。"
+  },
+  "NoitaTheSpire:RevengeKick": {
+    "NAME": "复仇踢击",
+    "DESCRIPTION": "造成 !D! 点伤害。 NL 给予 !M! 层易伤。 NL 如果你在这回合打出的牌数等于3张，获得 noitathespire:反击 并结束你的回合。 NL noitathespire:踢击 。",
+    "EXTENDED_DESCRIPTION": [
+      " NL （已打出",
+      " 张牌。）",
+      " 张牌。）"
+    ]
+  },
+  "NoitaTheSpire:EmeraldTabletImpact": {
+    "NAME": "翡翠石板 - 冲击",
+    "DESCRIPTION": "造成 !D! 点伤害。 NL noitathespire:动能 ：造成双倍伤害。 NL 若 斩杀 ，获得 !M! 金币。 NL 消耗 。"
+  },
+  "NoitaTheSpire:EmeraldTabletBuffer": {
+    "NAME": "翡翠石板 - 缓冲",
+    "DESCRIPTION": "获得 !B! 点格挡。 NL noitathespire:动能 ：对随机敌人造成 !D! 点伤害。"
+  },
+  "NoitaTheSpire:Rock": {
+    "NAME": "岩石",
+    "DESCRIPTION": "将1张 *岩石冲击 加入你的抽牌堆。 NL noitathespire:动能 ：立即将其放入你的手牌。 NL 消耗 。",
+    "UPGRADE_DESCRIPTION": "将1张 *岩石冲击+ 加入你的抽牌堆。 NL noitathespire:动能 ：立即将其放入你的手牌。 NL 消耗 。"
+  },
+  "NoitaTheSpire:RockImpact": {
+    "NAME": "岩石冲击",
+    "DESCRIPTION": "造成 !D! 点伤害。 NL 将1张 *岩石 加入你的抽牌堆。 NL 消耗 。",
+    "UPGRADE_DESCRIPTION": "造成 !D! 点伤害。 NL 将1张 *岩石+ 加入你的抽牌堆。 NL 消耗 。"
+  },
+  "NoitaTheSpire:TelekineticKick": {
+    "NAME": "念动力踢击",
+    "DESCRIPTION": "每回合开始时，打出的下 !M! 张 noitathespire:动能 牌将触发其 noitathespire:动能 效果。"
   },
   "NoitaTheSpire:Chainsaw": {
     "NAME": "链锯",
-    "DESCRIPTION": "造成 !D! 点伤害。 NL 丢弃一张随机攻击牌，若手牌中没有攻击牌，抽5张牌。 NL 获得1层 noitathespire:快速充能 。"
+    "DESCRIPTION": "造成 !D! 点伤害。 NL 丢弃1张随机攻击牌，若手牌中没有攻击牌，抽 !M! 张牌。 NL 获得1层 noitathespire:快速充能 。"
   },
   "NoitaTheSpire:BouncingSpells": {
     "NAME": "弹跳的法术",
@@ -33,12 +76,11 @@
   },
   "NoitaTheSpire:HighManaLowCapacity": {
     "NAME": "高法力，低容量",
-    "DESCRIPTION": "每回合开始时获得 [E] 。 NL 每次洗牌时，丢弃抽牌堆底部4张牌。",
-    "UPGRADE_DESCRIPTION": "每回合开始时获得 [E] [E] 。 NL 每次洗牌时，丢弃抽牌堆底部4张牌。"
+    "DESCRIPTION": "每回合开始时获得 [E] 。 NL 每次洗牌时，丢弃抽牌堆底部4张牌。"
   },
   "NoitaTheSpire:Infestation": {
     "NAME": "侵扰",
-    "DESCRIPTION": "随机对敌人造成 !D! 点伤害 !M! 次。 NL 当前每有一名敌人，额外造成一次伤害。 NL 获得6层 noitathespire:弹跳 。 NL noitathespire:弹性 。"
+    "DESCRIPTION": "随机对敌人造成 !D! 点伤害 !M! 次。 NL 当前每有一名敌人，额外造成一次伤害。 NL 获得3次 !D! 层 noitathespire:弹跳 。 NL noitathespire:弹性 。"
   },
   "NoitaTheSpire:Wrap": {
     "NAME": "回绕",
@@ -54,18 +96,30 @@
   },
   "NoitaTheSpire:MyriadSpell": {
     "NAME": "无尽法术",
-    "DESCRIPTION": "抽牌直到将手牌抽满或抽牌堆抽空。 NL 本回合抽牌堆抽空前，每打出或丢弃一张牌，抽一张牌。 NL 消耗 。"
+    "DESCRIPTION": "抽牌直到将抽牌堆抽空。 NL 本回合抽牌堆抽空前，每打出一张牌，抽1张牌。 NL 消耗 。"
   },
   "NoitaTheSpire:DoubleScatterSpell": {
     "NAME": "二重散射法术",
-    "DESCRIPTION": "抽2张牌。 NL 丢弃 !M! 张抽到的随机攻击牌。"
+    "DESCRIPTION": "抽2张牌。 NL 丢弃 !M! 张随机攻击牌。"
   },
   "NoitaTheSpire:QuadrupleScatterSpell": {
     "NAME": "四重散射法术",
-    "DESCRIPTION": "抽4张牌。 NL 丢弃 !M! 张抽到的随机攻击牌。"
+    "DESCRIPTION": "抽4张牌。 NL 丢弃 !M! 张随机攻击牌。"
   },
   "NoitaTheSpire:FormationOfHexagon": {
     "NAME": "阵型 - 六边形",
-    "DESCRIPTION": "抽6张牌。 NL 丢弃 !M! 张抽到的随机攻击牌。"
+    "DESCRIPTION": "抽6张牌。 NL 丢弃 !M! 张随机攻击牌。"
+  },
+  "NoitaTheSpire:Crouch": {
+    "NAME": "蹲下",
+    "DESCRIPTION": "获得 !B! 点 格挡 。 NL 如果手牌中没有技能牌，再获得 !B! 点格挡。"
+  },
+  "NoitaTheSpire:Jump": {
+    "NAME": "跳跃",
+    "DESCRIPTION": "获得 !M! 点临时 敏捷 。 NL 抽1张牌。"
+  },
+  "NoitaTheSpire:Dive": {
+    "NAME": "潜水",
+    "DESCRIPTION": "获得 !B! 点 格挡 。 NL 获得 !M! 层 noitathespire:多层护甲 。 NL 获得2层 虚弱 。"
   }
 }
