@@ -1,6 +1,5 @@
 package com.xm666.noitathespire.cards;
 
-import basemod.abstracts.CustomCard;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -12,12 +11,12 @@ import com.xm666.noitathespire.util.ModUtil;
 
 import static com.xm666.noitathespire.characters.Mina.PlayerColorEnum.MINA_PURPLE;
 
-public class MyriadSpell extends CustomCard {
+public class MyriadSpell extends VariableCard {
     public static final String ID = ModUtil.getId();
     private static final CardStrings CARD_STRINGS = CardCrawlGame.languagePack.getCardStrings(ID);
     private static final String NAME = CARD_STRINGS.NAME;
     private static final String DESCRIPTION = CARD_STRINGS.DESCRIPTION;
-    private static final String IMG_PATH = "NoitaTheSpire/cards/myriadSpell.png";
+    private static final String IMG_PATH = ModUtil.getCardImg();
     private static final int COST = 2;
     private static final CardType TYPE = CardType.SKILL;
     private static final CardColor COLOR = MINA_PURPLE;
@@ -26,6 +25,7 @@ public class MyriadSpell extends CustomCard {
 
     public MyriadSpell() {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
+        this.variable = this.baseVariable = 1;
         this.exhaust = true;
     }
 
@@ -48,7 +48,8 @@ public class MyriadSpell extends CustomCard {
                         p,
                         new Myriad(
                                 p,
-                                0
+                                0,
+                                variable
                         )
                 )
         );

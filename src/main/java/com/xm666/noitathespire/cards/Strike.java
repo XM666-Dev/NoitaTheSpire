@@ -17,7 +17,7 @@ public class Strike extends CustomCard {
     private static final CardStrings CARD_STRINGS = CardCrawlGame.languagePack.getCardStrings(ID);
     private static final String NAME = CARD_STRINGS.NAME;
     private static final String DESCRIPTION = CARD_STRINGS.DESCRIPTION;
-    private static final String IMG_PATH = "NoitaTheSpire/cards/strike.png";
+    private static final String IMG_PATH = ModUtil.getCardImg();
     private static final int COST = 1;
     private static final CardType TYPE = CardType.ATTACK;
     private static final CardColor COLOR = MINA_PURPLE;

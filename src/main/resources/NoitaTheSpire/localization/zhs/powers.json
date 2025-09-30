@@ -53,5 +53,11 @@
     "DESCRIPTIONS": [
       "每回合开始时，打出的下 #b%s 张 #y动能 牌将触发其 #y动能 效果。"
     ]
+  },
+  "NoitaTheSpire:FasterLevitate": {
+    "NAME": "更快漂浮",
+    "DESCRIPTIONS": [
+      "从 #y浮空 中获得的格挡增加 #b%s 。"
+    ]
   }
 }

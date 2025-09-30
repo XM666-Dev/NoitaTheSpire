@@ -29,15 +29,15 @@
   },
   "NoitaTheSpire:Bomb": {
     "NAME": "炸弹",
-    "DESCRIPTION": "在3回合结束后，对所有敌人造成 !M! 点伤害。 NL 消耗 。"
+    "DESCRIPTION": "在 !NoitaTheSpire:V! 回合结束后，对所有敌人造成 !M! 点伤害。 NL 消耗 。"
   },
   "NoitaTheSpire:DisarmKick": {
     "NAME": "缴械踢击",
-    "DESCRIPTION": "造成 !D! 点伤害。 NL 给予 !M! 层 虚弱 。 NL 如果目标拥有非负层数的力量，使其失去 !B! 点力量。 NL noitathespire:踢击 。"
+    "DESCRIPTION": "造成 !D! 点伤害。 NL 给予 !M! 层 虚弱 。 NL 如果目标拥有非负层数的力量，使其失去 !NoitaTheSpire:V! 点力量。 NL noitathespire:踢击 。"
   },
   "NoitaTheSpire:RevengeKick": {
     "NAME": "复仇踢击",
-    "DESCRIPTION": "造成 !D! 点伤害。 NL 给予 !M! 层易伤。 NL 如果你在这回合打出的牌数等于3张，获得 noitathespire:反击 并结束你的回合。 NL noitathespire:踢击 。",
+    "DESCRIPTION": "造成 !D! 点伤害。 NL 给予 !M! 层易伤。 NL 如果你在这回合打出的牌数等于 !NoitaTheSpire:V! 张，获得 noitathespire:反击 并结束你的回合。 NL noitathespire:踢击 。",
     "EXTENDED_DESCRIPTION": [
       " NL （已打出",
       " 张牌。）",
@@ -54,13 +54,13 @@
   },
   "NoitaTheSpire:Rock": {
     "NAME": "岩石",
-    "DESCRIPTION": "将1张 *岩石冲击 加入你的抽牌堆。 NL noitathespire:动能 ：立即将其放入你的手牌。 NL 消耗 。",
-    "UPGRADE_DESCRIPTION": "将1张 *岩石冲击+ 加入你的抽牌堆。 NL noitathespire:动能 ：立即将其放入你的手牌。 NL 消耗 。"
+    "DESCRIPTION": "将 !M! 张 *岩石冲击 加入你的抽牌堆。 NL noitathespire:动能 ：立即将其放入你的手牌。 NL 消耗 。",
+    "UPGRADE_DESCRIPTION": "将 !M! 张 *岩石冲击+ 加入你的抽牌堆。 NL noitathespire:动能 ：立即将其放入你的手牌。 NL 消耗 。"
   },
   "NoitaTheSpire:RockImpact": {
     "NAME": "岩石冲击",
-    "DESCRIPTION": "造成 !D! 点伤害。 NL 将1张 *岩石 加入你的抽牌堆。 NL 消耗 。",
-    "UPGRADE_DESCRIPTION": "造成 !D! 点伤害。 NL 将1张 *岩石+ 加入你的抽牌堆。 NL 消耗 。"
+    "DESCRIPTION": "造成 !D! 点伤害。 NL 将 !M! 张 *岩石 加入你的抽牌堆。 NL 消耗 。",
+    "UPGRADE_DESCRIPTION": "造成 !D! 点伤害。 NL 将 !M! 张 *岩石+ 加入你的抽牌堆。 NL 消耗 。"
   },
   "NoitaTheSpire:TelekineticKick": {
     "NAME": "念动力踢击",
@@ -68,7 +68,7 @@
   },
   "NoitaTheSpire:Chainsaw": {
     "NAME": "链锯",
-    "DESCRIPTION": "造成 !D! 点伤害。 NL 丢弃1张随机攻击牌，若手牌中没有攻击牌，抽 !M! 张牌。 NL 获得1层 noitathespire:快速充能 。"
+    "DESCRIPTION": "造成 !D! 点伤害。 NL 丢弃 !NoitaTheSpire:V! 张随机攻击牌，若手牌中没有攻击牌，抽 !M! 张牌。 NL 获得 !NoitaTheSpire:C! 层 noitathespire:快速充能 。"
   },
   "NoitaTheSpire:BouncingSpells": {
     "NAME": "弹跳的法术",
@@ -76,11 +76,11 @@
   },
   "NoitaTheSpire:HighManaLowCapacity": {
     "NAME": "高法力，低容量",
-    "DESCRIPTION": "每回合开始时获得 [E] 。 NL 每次洗牌时，丢弃抽牌堆底部4张牌。"
+    "DESCRIPTION": "每回合开始时获得 [E] 。 NL 每次洗牌时，丢弃抽牌堆底部 !NoitaTheSpire:V! 张牌。"
   },
   "NoitaTheSpire:Infestation": {
     "NAME": "侵扰",
-    "DESCRIPTION": "随机对敌人造成 !D! 点伤害 !M! 次。 NL 当前每有一名敌人，额外造成一次伤害。 NL 获得3次 !D! 层 noitathespire:弹跳 。 NL noitathespire:弹性 。"
+    "DESCRIPTION": "随机对敌人造成 !D! 点伤害 !M! 次。 NL 当前每有一名敌人，额外造成 !NoitaTheSpire:V! 次伤害。 NL 获得 !NoitaTheSpire:C! 次 !D! 层 noitathespire:弹跳 。 NL noitathespire:弹性 。"
   },
   "NoitaTheSpire:Wrap": {
     "NAME": "回绕",
@@ -96,30 +96,67 @@
   },
   "NoitaTheSpire:MyriadSpell": {
     "NAME": "无尽法术",
-    "DESCRIPTION": "抽牌直到将抽牌堆抽空。 NL 本回合抽牌堆抽空前，每打出一张牌，抽1张牌。 NL 消耗 。"
+    "DESCRIPTION": "抽牌直到将抽牌堆抽空。 NL 本回合抽牌堆抽空前，每打出一张牌，抽 !NoitaTheSpire:V! 张牌。 NL 消耗 。"
   },
   "NoitaTheSpire:DoubleScatterSpell": {
     "NAME": "二重散射法术",
-    "DESCRIPTION": "抽2张牌。 NL 丢弃 !M! 张随机攻击牌。"
+    "DESCRIPTION": "抽 !NoitaTheSpire:V! 张牌。 NL 丢弃 !M! 张随机攻击牌。"
   },
   "NoitaTheSpire:QuadrupleScatterSpell": {
     "NAME": "四重散射法术",
-    "DESCRIPTION": "抽4张牌。 NL 丢弃 !M! 张随机攻击牌。"
+    "DESCRIPTION": "抽 !NoitaTheSpire:V! 张牌。 NL 丢弃 !M! 张随机攻击牌。"
   },
   "NoitaTheSpire:FormationOfHexagon": {
     "NAME": "阵型 - 六边形",
-    "DESCRIPTION": "抽6张牌。 NL 丢弃 !M! 张随机攻击牌。"
+    "DESCRIPTION": "抽 !NoitaTheSpire:V! 张牌。 NL 丢弃 !M! 张随机攻击牌。"
   },
   "NoitaTheSpire:Crouch": {
     "NAME": "蹲下",
-    "DESCRIPTION": "获得 !B! 点 格挡 。 NL 如果手牌中没有技能牌，再获得 !B! 点格挡。"
+    "DESCRIPTION": "获得 !B! 点 格挡 。 NL 如果手牌中没有其他技能牌，再获得 !B! 点格挡。"
   },
   "NoitaTheSpire:Jump": {
     "NAME": "跳跃",
-    "DESCRIPTION": "获得 !M! 点临时 敏捷 。 NL 抽1张牌。"
+    "DESCRIPTION": "获得 !M! 点临时 敏捷 。 NL 抽 !NoitaTheSpire:V! 张牌。"
   },
   "NoitaTheSpire:Dive": {
     "NAME": "潜水",
-    "DESCRIPTION": "获得 !B! 点 格挡 。 NL 获得 !M! 层 noitathespire:多层护甲 。 NL 获得2层 虚弱 。"
+    "DESCRIPTION": "获得 !B! 点 格挡 。 NL 获得 !M! 层 noitathespire:多层护甲 。 NL 获得 !NoitaTheSpire:V! 层 虚弱 。"
+  },
+  "NoitaTheSpire:FasterMovement": {
+    "NAME": "更快移动",
+    "DESCRIPTION": "获得 !M! 点 敏捷 。"
+  },
+  "NoitaTheSpire:FasterLevitation": {
+    "NAME": "更快漂浮",
+    "DESCRIPTION": "从 *浮空 中获得的格挡增加 !M! 。"
+  },
+  "NoitaTheSpire:Water": {
+    "NAME": "清水",
+    "DESCRIPTION": " 保留 。 NL 消耗手牌中所有 状态牌 。 NL 消耗抽牌堆中 !M! 张随机 状态牌 。 NL 消耗 。"
+  },
+  "NoitaTheSpire:DamagePlus": {
+    "NAME": "伤害增强",
+    "DESCRIPTION": "获得 !M! 点临时力量。"
+  },
+  "NoitaTheSpire:ExtraMana": {
+    "NAME": "额外法力",
+    "DESCRIPTION": "获得 [E]  [E] 。 NL 下回合少抽 !NoitaTheSpire:V! 张牌。",
+    "UPGRADE_DESCRIPTION": "获得 [E]  [E]  [E] 。 NL 下回合少抽 !NoitaTheSpire:V! 张牌。"
+  },
+  "NoitaTheSpire:BloodMagic": {
+    "NAME": "血液魔法",
+    "DESCRIPTION": "获得 [E]  [E]  [E] 。 NL 下回合多抽 !NoitaTheSpire:V! 张牌。 NL 获得 !NoitaTheSpire:C! 层 noitathespire:快速充能 。 NL 失去 !D! 点生命。"
+  },
+  "NoitaTheSpire:ChainBolt": {
+    "NAME": "连环魔弹",
+    "DESCRIPTION": "随机对不重复的敌人造成 !D! 点伤害 !M! 次。 NL 下回合少抽 !NoitaTheSpire:V! 张牌。"
+  },
+  "NoitaTheSpire:GlowingLance": {
+    "NAME": "闪耀之枪",
+    "DESCRIPTION": "造成 !D! 点伤害。 NL 下回合少抽 !M! 张牌。 noitathespire:专注 !NoitaTheSpire:V! 。"
+  },
+  "NoitaTheSpire:DiggingBolt": {
+    "NAME": "挖掘魔弹",
+    "DESCRIPTION": "去除一名敌人的所有 格挡 值。 NL 造成 !D! 点伤害。 NL 获得 !M! 层 快速充能 。"
   }
 }

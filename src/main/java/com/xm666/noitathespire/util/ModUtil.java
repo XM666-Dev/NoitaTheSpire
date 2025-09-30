@@ -8,6 +8,7 @@ import com.megacrit.cardcrawl.monsters.MonsterGroup;
 import com.xm666.noitathespire.mod.NoitaTheSpire;
 
 import java.util.ArrayList;
+import java.util.Locale;
 
 public class ModUtil {
     public static String getId() {
@@ -23,14 +24,56 @@ public class ModUtil {
         return className.substring(index + 1);
     }
 
+    public static String getCardImg() {
+        String modName = NoitaTheSpire.class.getSimpleName();
+        String cardName = getSimpleName(Thread.currentThread().getStackTrace()[2].getClassName());
+        cardName = cardName.substring(0, 1).toLowerCase(Locale.ROOT) + cardName.substring(1);
+        return String.format("%s/cards/%s.png", modName, cardName);
+    }
+
+    public static String getPowerImg() {
+        String modName = NoitaTheSpire.class.getSimpleName();
+        String powerName = getSimpleName(Thread.currentThread().getStackTrace()[2].getClassName());
+        powerName = getPowerName(powerName);
+        return String.format("%s/powers/%s.png", modName, powerName);
+    }
+
+    public static String getPowerImg48() {
+        String modName = NoitaTheSpire.class.getSimpleName();
+        String powerName = getSimpleName(Thread.currentThread().getStackTrace()[2].getClassName());
+        powerName = getPowerName(powerName);
+        return String.format("%s/powers/%s_48.png", modName, powerName);
+    }
+
+    private static String getPowerName(String powerName) {
+        char[] newCardChars = new char[powerName.length() + (int) powerName.chars().filter(Character::isUpperCase).count() - 1];
+        int i = 0;
+        for (int j = 0; j < powerName.length(); ++j) {
+            char cardChar = powerName.charAt(j);
+            if (Character.isUpperCase(cardChar) && j > 0) {
+                newCardChars[i++] = '_';
+            }
+            newCardChars[i++] = Character.toLowerCase(cardChar);
+        }
+        powerName = String.valueOf(newCardChars);
+        return powerName;
+    }
+
+    public static String getRelicImg() {
+        String modName = NoitaTheSpire.class.getSimpleName();
+        String cardName = getSimpleName(Thread.currentThread().getStackTrace()[2].getClassName());
+        cardName = cardName.substring(0, 1).toLowerCase(Locale.ROOT) + cardName.substring(1);
+        return String.format("%s/relics/%s.png", modName, cardName);
+    }
+
     public static AbstractCard getRandomAttackCardFromHand() {
         return getRandomAttackCardFromHand(null);
     }
 
     public static AbstractCard getRandomAttackCardFromHand(AbstractCard exception) {
         ArrayList<AbstractCard> attacks = new ArrayList<>();
-        for (AbstractCard c : AbstractDungeon.player.hand.group) {
-            if (c.type == AbstractCard.CardType.ATTACK && c != exception) {
+        for (AbstractCard c : AbstractDungeon.player.hand.getAttacks().group) {
+            if (c != exception) {
                 attacks.add(c);
             }
         }

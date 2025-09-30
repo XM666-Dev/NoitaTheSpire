@@ -23,7 +23,7 @@ public class Kick extends CustomCard {
     private static final CardStrings CARD_STRINGS = CardCrawlGame.languagePack.getCardStrings(ID);
     private static final String NAME = CARD_STRINGS.NAME;
     private static final String DESCRIPTION = CARD_STRINGS.DESCRIPTION;
-    private static final String IMG_PATH = "NoitaTheSpire/cards/kick.png";
+    private static final String IMG_PATH = ModUtil.getCardImg();
     private static final int COST = 1;
     private static final CardType TYPE = CardType.ATTACK;
     private static final CardColor COLOR = MINA_PURPLE;
@@ -34,7 +34,7 @@ public class Kick extends CustomCard {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         this.damage = this.baseDamage = 4;
         this.magicNumber = this.baseMagicNumber = 1;
-        this.retain = true;
+        this.selfRetain = true;
     }
 
     @Override

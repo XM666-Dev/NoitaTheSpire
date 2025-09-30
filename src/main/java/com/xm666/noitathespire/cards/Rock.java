@@ -16,7 +16,7 @@ public class Rock extends KineticCard {
     private static final CardStrings CARD_STRINGS = CardCrawlGame.languagePack.getCardStrings(ID);
     private static final String NAME = CARD_STRINGS.NAME;
     private static final String DESCRIPTION = CARD_STRINGS.DESCRIPTION;
-    private static final String IMG_PATH = "NoitaTheSpire/cards/rock.png";
+    private static final String IMG_PATH = ModUtil.getCardImg();
     private static final int COST = 0;
     private static final CardType TYPE = CardType.SKILL;
     private static final CardColor COLOR = MINA_PURPLE;
@@ -25,6 +25,7 @@ public class Rock extends KineticCard {
 
     public Rock() {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
+        this.magicNumber = this.baseMagicNumber = 1;
         this.exhaust = true;
         this.cardsToPreview = new RockImpact(this);
     }
@@ -43,13 +44,13 @@ public class Rock extends KineticCard {
         RockImpact rockImpact = new RockImpact();
         if (upgraded)
             rockImpact.upgrade();
-        if (!kineticThisPlay) {
+        if (kineticThisPlay) {
             this.addToBot(
-                    new MakeTempCardInDrawPileAction(rockImpact, 1, true, true)
+                    new MakeTempCardInHandAction(rockImpact, magicNumber)
             );
         } else {
             this.addToBot(
-                    new MakeTempCardInHandAction(rockImpact)
+                    new MakeTempCardInDrawPileAction(rockImpact, magicNumber, true, true)
             );
         }
         super.use(p, m);

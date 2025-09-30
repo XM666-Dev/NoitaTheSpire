@@ -1,6 +1,5 @@
 package com.xm666.noitathespire.cards;
 
-import basemod.abstracts.CustomCard;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -14,12 +13,12 @@ import com.xm666.noitathespire.util.ModUtil;
 
 import static com.xm666.noitathespire.characters.Mina.PlayerColorEnum.MINA_PURPLE;
 
-public class Dive extends CustomCard {
+public class Dive extends VariableCard {
     public static final String ID = ModUtil.getId();
     private static final CardStrings CARD_STRINGS = CardCrawlGame.languagePack.getCardStrings(ID);
     private static final String NAME = CARD_STRINGS.NAME;
     private static final String DESCRIPTION = CARD_STRINGS.DESCRIPTION;
-    private static final String IMG_PATH = "NoitaTheSpire/cards/dive.png";
+    private static final String IMG_PATH = ModUtil.getCardImg();
     private static final int COST = 1;
     private static final CardType TYPE = CardType.SKILL;
     private static final CardColor COLOR = MINA_PURPLE;
@@ -30,6 +29,7 @@ public class Dive extends CustomCard {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         this.block = this.baseBlock = 8;
         this.magicNumber = this.baseMagicNumber = 2;
+        this.variable = this.baseVariable = 2;
     }
 
     @Override
@@ -64,7 +64,7 @@ public class Dive extends CustomCard {
                         p,
                         new WeakPower(
                                 p,
-                                2,
+                                variable,
                                 false
                         )
                 )

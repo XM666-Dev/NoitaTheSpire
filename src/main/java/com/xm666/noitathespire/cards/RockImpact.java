@@ -16,7 +16,7 @@ public class RockImpact extends CustomCard {
     private static final CardStrings CARD_STRINGS = CardCrawlGame.languagePack.getCardStrings(ID);
     private static final String NAME = CARD_STRINGS.NAME;
     private static final String DESCRIPTION = CARD_STRINGS.DESCRIPTION;
-    private static final String IMG_PATH = "NoitaTheSpire/cards/rockImpact.png";
+    private static final String IMG_PATH = ModUtil.getCardImg();
     private static final int COST = 2;
     private static final CardType TYPE = CardType.ATTACK;
     private static final CardColor COLOR = CardColor.COLORLESS;
@@ -26,6 +26,7 @@ public class RockImpact extends CustomCard {
     public RockImpact() {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         this.damage = this.baseDamage = 30;
+        this.magicNumber = this.baseMagicNumber = 1;
         this.exhaust = true;
     }
 
@@ -58,7 +59,7 @@ public class RockImpact extends CustomCard {
         if (upgraded)
             rock.upgrade();
         this.addToBot(
-                new MakeTempCardInDiscardAction(rock, 1)
+                new MakeTempCardInDiscardAction(rock, magicNumber)
         );
     }
 }

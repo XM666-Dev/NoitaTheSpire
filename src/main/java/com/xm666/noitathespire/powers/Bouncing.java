@@ -20,8 +20,8 @@ public class Bouncing extends AbstractPower {
     private static final PowerStrings powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
     private static final String NAME = powerStrings.NAME;
     private static final String[] DESCRIPTIONS = powerStrings.DESCRIPTIONS;
-    private static final String IMG_PATH_128 = "NoitaTheSpire/powers/bouncing.png";
-    private static final String IMG_PATH_48 = "NoitaTheSpire/powers/bouncing_48.png";
+    private static final String IMG_PATH_128 = ModUtil.getPowerImg();
+    private static final String IMG_PATH_48 = ModUtil.getPowerImg48();
     private static final TextureAtlas.AtlasRegion REGION_128 = new TextureAtlas.AtlasRegion(ImageMaster.loadImage(IMG_PATH_128), 0, 0, 80, 80);
     private static final TextureAtlas.AtlasRegion REGION_48 = new TextureAtlas.AtlasRegion(ImageMaster.loadImage(IMG_PATH_48), 0, 0, 32, 32);
     private static int idOffset;
@@ -67,7 +67,7 @@ public class Bouncing extends AbstractPower {
         AbstractMonster m = ModUtil.getRandomMonster(AbstractDungeon.getMonsters(), exception, true);
         int originalAmount = amount;
         int applyAmount = getApplyAmount();
-        AbstractDungeon.actionManager.addToBottom(
+        this.addToBot(
                 new RemoveSpecificPowerAction(
                         originalOwner,
                         m,
@@ -77,7 +77,7 @@ public class Bouncing extends AbstractPower {
         if (applyAmount > 0) {
             owner = m;
             amount = applyAmount;
-            AbstractDungeon.actionManager.addToBottom(
+            this.addToBot(
                     new ApplyPowerAction(
                             m,
                             originalOwner,
@@ -85,7 +85,7 @@ public class Bouncing extends AbstractPower {
                     )
             );
         }
-        AbstractDungeon.actionManager.addToBottom(
+        this.addToBot(
                 new DamageAction(
                         m,
                         new DamageInfo(

@@ -1,0 +1,9 @@
+{
+  "NoitaTheSpire:WaterPotion": {
+    "NAME": "水魔药",
+    "FLAVOR": "装备并投掷",
+    "DESCRIPTIONS": [
+      "在每场战斗开始时，将一张 #y清水 放入你的手牌。"
+    ]
+  }
+}

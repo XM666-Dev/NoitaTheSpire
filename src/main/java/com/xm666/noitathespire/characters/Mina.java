@@ -20,6 +20,7 @@ import com.megacrit.cardcrawl.localization.CharacterStrings;
 import com.megacrit.cardcrawl.screens.CharSelectInfo;
 import com.xm666.noitathespire.cards.*;
 import com.xm666.noitathespire.mod.NoitaTheSpire;
+import com.xm666.noitathespire.relics.WaterPotion;
 
 import java.util.ArrayList;
 
@@ -84,7 +85,9 @@ public class Mina extends CustomPlayer {
     }
 
     public ArrayList<String> getStartingRelics() {
-        return new ArrayList<>();
+        ArrayList<String> relics = new ArrayList<>();
+        relics.add(WaterPotion.ID);
+        return relics;
     }
 
     public CharSelectInfo getLoadout() {

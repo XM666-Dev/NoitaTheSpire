@@ -2,6 +2,8 @@ package com.xm666.noitathespire.mod;
 
 import basemod.AutoAdd;
 import basemod.BaseMod;
+import basemod.abstracts.DynamicVariable;
+import basemod.helpers.RelicType;
 import basemod.interfaces.*;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
@@ -9,13 +11,14 @@ import com.badlogic.gdx.math.MathUtils;
 import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer;
 import com.google.gson.Gson;
 import com.megacrit.cardcrawl.actions.utility.SFXAction;
+import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
-import com.megacrit.cardcrawl.localization.CardStrings;
-import com.megacrit.cardcrawl.localization.CharacterStrings;
-import com.megacrit.cardcrawl.localization.PowerStrings;
-import com.megacrit.cardcrawl.localization.UIStrings;
+import com.megacrit.cardcrawl.localization.*;
+import com.megacrit.cardcrawl.relics.AbstractRelic;
+import com.megacrit.cardcrawl.unlock.UnlockTracker;
+import com.xm666.noitathespire.cards.VariableCard;
 import com.xm666.noitathespire.characters.Mina;
 
 import java.nio.charset.StandardCharsets;
@@ -27,7 +30,7 @@ import static com.xm666.noitathespire.characters.Mina.PlayerColorEnum.MINA;
 import static com.xm666.noitathespire.characters.Mina.PlayerColorEnum.MINA_PURPLE;
 
 @SpireInitializer
-public class NoitaTheSpire implements EditCharactersSubscriber, EditStringsSubscriber, EditCardsSubscriber, EditKeywordsSubscriber, AddAudioSubscriber {
+public class NoitaTheSpire implements EditCharactersSubscriber, EditStringsSubscriber, EditCardsSubscriber, EditKeywordsSubscriber, EditRelicsSubscriber, AddAudioSubscriber {
     public static final Color COLOR = new Color(0x9b6f9aff);
     private static final String CHARACTER_BUTTON = "NoitaTheSpire/characters/mina/characterButton.png";
     private static final String CHARACTER_PORTRAIT = "NoitaTheSpire/characters/mina/characterPortrait.jpg";
@@ -77,12 +80,91 @@ public class NoitaTheSpire implements EditCharactersSubscriber, EditStringsSubsc
         BaseMod.loadCustomStringsFile(CardStrings.class, String.format("NoitaTheSpire/localization/%s/%s.json", language, "cards"));
         BaseMod.loadCustomStringsFile(PowerStrings.class, String.format("NoitaTheSpire/localization/%s/%s.json", language, "powers"));
         BaseMod.loadCustomStringsFile(UIStrings.class, String.format("NoitaTheSpire/localization/%s/%s.json", language, "ui"));
+        BaseMod.loadCustomStringsFile(RelicStrings.class, String.format("NoitaTheSpire/localization/%s/%s.json", language, "relics"));
     }
 
     @Override
     public void receiveEditCards() {
         AutoAdd autoAdd = new AutoAdd(NoitaTheSpire.class.getSimpleName());
         autoAdd.cards();
+        BaseMod.addDynamicVariable(new DynamicVariable() {
+            @Override
+            public String key() {
+                return "NoitaTheSpire:V";
+            }
+
+            @Override
+            public boolean isModified(AbstractCard abstractCard) {
+                if (abstractCard instanceof VariableCard) {
+                    return ((VariableCard) abstractCard).isVariableModified;
+                }
+                return false;
+            }
+
+            @Override
+            public int value(AbstractCard abstractCard) {
+                if (abstractCard instanceof VariableCard) {
+                    return ((VariableCard) abstractCard).variable;
+                }
+                return 0;
+            }
+
+            @Override
+            public int baseValue(AbstractCard abstractCard) {
+                if (abstractCard instanceof VariableCard) {
+                    return ((VariableCard) abstractCard).baseVariable;
+                }
+                return 0;
+            }
+
+            @Override
+            public boolean upgraded(AbstractCard abstractCard) {
+                if (abstractCard instanceof VariableCard) {
+                    return ((VariableCard) abstractCard).upgradedVariable;
+                }
+                return false;
+            }
+        });
+        for (char c : new char[]{'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', /*'V',*/ 'W', 'X', 'Y', 'Z'}) {
+            BaseMod.addDynamicVariable(new DynamicVariable() {
+                @Override
+                public String key() {
+                    return "NoitaTheSpire:" + c;
+                }
+
+                @Override
+                public boolean isModified(AbstractCard abstractCard) {
+                    if (abstractCard instanceof VariableCard) {
+                        return ((VariableCard) abstractCard).isModified(c);
+                    }
+                    return false;
+                }
+
+                @Override
+                public int value(AbstractCard abstractCard) {
+                    if (abstractCard instanceof VariableCard) {
+                        return ((VariableCard) abstractCard).value(c);
+                    }
+                    return 0;
+                }
+
+                @Override
+                public int baseValue(AbstractCard abstractCard) {
+                    if (abstractCard instanceof VariableCard) {
+                        return ((VariableCard) abstractCard).baseValue(c);
+                    }
+                    return 0;
+                }
+
+                @Override
+                public boolean upgraded(AbstractCard abstractCard) {
+                    if (abstractCard instanceof VariableCard) {
+                        return ((VariableCard) abstractCard).upgraded(c);
+                    }
+                    return false;
+                }
+            });
+        }
     }
 
     @Override
@@ -94,6 +176,17 @@ public class NoitaTheSpire implements EditCharactersSubscriber, EditStringsSubsc
         for (String key : keywords.keySet()) {
             BaseMod.addKeyword(id, key, new String[]{key}, keywords.get(key));
         }
+    }
+
+    @Override
+    public void receiveEditRelics() {
+        AutoAdd autoAdd = new AutoAdd(NoitaTheSpire.class.getSimpleName());
+        autoAdd.any(AbstractRelic.class, (info, relic) -> {
+            BaseMod.addRelic(relic, RelicType.SHARED);
+            if (info.seen) {
+                UnlockTracker.unlockCard(relic.relicId);
+            }
+        });
     }
 
     @Override
@@ -115,6 +208,8 @@ public class NoitaTheSpire implements EditCharactersSubscriber, EditStringsSubsc
         addAudio("rock_add_0", 4);
         addAudio("start_0", 3);
         addAudio("bomb_0", 3);
+        addAudio("bullet_laser_0", 3);
+        addAudio("bullet_arrow_0", 3);
     }
 
     private Map<String, String> loadKeywords(String filepath) {

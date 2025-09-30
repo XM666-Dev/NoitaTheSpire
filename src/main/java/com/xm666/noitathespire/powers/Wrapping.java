@@ -22,8 +22,8 @@ public class Wrapping extends AbstractPower implements OnShufflePower {
     private static final PowerStrings powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
     private static final String NAME = powerStrings.NAME;
     private static final String[] DESCRIPTIONS = powerStrings.DESCRIPTIONS;
-    private static final String IMG_PATH_128 = "NoitaTheSpire/powers/wrapping.png";
-    private static final String IMG_PATH_48 = "NoitaTheSpire/powers/wrapping_48.png";
+    private static final String IMG_PATH_128 = ModUtil.getPowerImg();
+    private static final String IMG_PATH_48 = ModUtil.getPowerImg48();
     private static final TextureAtlas.AtlasRegion REGION_128 = new TextureAtlas.AtlasRegion(ImageMaster.loadImage(IMG_PATH_128), 0, 0, 80, 80);
     private static final TextureAtlas.AtlasRegion REGION_48 = new TextureAtlas.AtlasRegion(ImageMaster.loadImage(IMG_PATH_48), 0, 0, 32, 32);
     private final LinkedHashSet<AbstractCard> cards;
