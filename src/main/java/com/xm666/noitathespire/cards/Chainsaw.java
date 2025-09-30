@@ -10,7 +10,7 @@ import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.xm666.noitathespire.actions.ChainsawAction;
 import com.xm666.noitathespire.mod.NoitaTheSpire;
-import com.xm666.noitathespire.powers.FasterRecharge;
+import com.xm666.noitathespire.powers.RechargeSpeed;
 import com.xm666.noitathespire.util.ModUtil;
 
 import static com.xm666.noitathespire.characters.Mina.PlayerColorEnum.MINA_PURPLE;
@@ -62,7 +62,7 @@ public class Chainsaw extends VariableCard {
                 new ApplyPowerAction(
                         p,
                         p,
-                        new FasterRecharge(p, rechargeAmount)
+                        new RechargeSpeed(p, rechargeAmount)
                 )
         );
     }

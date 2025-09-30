@@ -12,8 +12,8 @@
       "每当你造成 #y伤害 时，给予 #b%s 层 #y弹跳 。"
     ]
   },
-  "NoitaTheSpire:FasterRecharge": {
-    "NAME": "快速充能",
+  "NoitaTheSpire:RechargeSpeed": {
+    "NAME": "充能速度",
     "DESCRIPTIONS": [
       "下一次 #y洗牌 时，抽 #b%s 张牌。"
     ]

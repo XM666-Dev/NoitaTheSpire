@@ -8,7 +8,7 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.DrawCardNextTurnPower;
-import com.xm666.noitathespire.powers.FasterRecharge;
+import com.xm666.noitathespire.powers.RechargeSpeed;
 import com.xm666.noitathespire.util.ModUtil;
 
 import static com.xm666.noitathespire.characters.Mina.PlayerColorEnum.MINA_PURPLE;
@@ -49,7 +49,7 @@ public class BloodMagic extends VariableCard {
                 new ApplyPowerAction(p, p, new DrawCardNextTurnPower(p, variable))
         );
         this.addToBot(
-                new ApplyPowerAction(p, p, new FasterRecharge(p, rechargeAmount))
+                new ApplyPowerAction(p, p, new RechargeSpeed(p, rechargeAmount))
         );
         this.addToBot(
                 new LoseHPAction(p, p, damage)

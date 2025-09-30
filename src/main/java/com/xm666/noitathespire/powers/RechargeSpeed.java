@@ -11,7 +11,7 @@ import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.xm666.noitathespire.util.ModUtil;
 import com.xm666.noitathespire.util.OnShufflePower;
 
-public class FasterRecharge extends AbstractPower implements OnShufflePower {
+public class RechargeSpeed extends AbstractPower implements OnShufflePower {
     public static final String POWER_ID = ModUtil.getId();
     private static final PowerStrings powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
     private static final String NAME = powerStrings.NAME;
@@ -21,13 +21,14 @@ public class FasterRecharge extends AbstractPower implements OnShufflePower {
     private static final TextureAtlas.AtlasRegion REGION_128 = new TextureAtlas.AtlasRegion(ImageMaster.loadImage(IMG_PATH_128), 0, 0, 80, 80);
     private static final TextureAtlas.AtlasRegion REGION_48 = new TextureAtlas.AtlasRegion(ImageMaster.loadImage(IMG_PATH_48), 0, 0, 32, 32);
 
-    public FasterRecharge(AbstractCreature owner, int amount) {
+    public RechargeSpeed(AbstractCreature owner, int amount) {
         this.name = NAME;
         this.ID = POWER_ID;
         this.owner = owner;
         this.type = PowerType.BUFF;
 
         this.amount = amount;
+        this.canGoNegative = true;
 
         this.region128 = REGION_128;
         this.region48 = REGION_48;
