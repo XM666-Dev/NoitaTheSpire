@@ -11,6 +11,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.xm666.noitathespire.actions.ChainsawAction;
 import com.xm666.noitathespire.mod.NoitaTheSpire;
 import com.xm666.noitathespire.powers.RechargeSpeed;
+import com.xm666.noitathespire.powers.Spread;
 import com.xm666.noitathespire.util.ModUtil;
 
 import static com.xm666.noitathespire.characters.Mina.PlayerColorEnum.MINA_PURPLE;
@@ -38,6 +39,7 @@ public class Chainsaw extends VariableCard {
 
     @Override
     public void upgrade() {
+        if (this.upgraded) return;
         this.upgradeName();
         this.upgradeDamage(3);
     }
@@ -56,13 +58,26 @@ public class Chainsaw extends VariableCard {
                 )
         );
         this.addToBot(
-                new ChainsawAction(p, magicNumber, variable)
+                new ChainsawAction(p, magicNumber)
         );
         this.addToBot(
                 new ApplyPowerAction(
                         p,
                         p,
-                        new RechargeSpeed(p, rechargeAmount)
+                        new Spread(
+                                p,
+                                variable
+                        )
+                )
+        );
+        this.addToBot(
+                new ApplyPowerAction(
+                        p,
+                        p,
+                        new RechargeSpeed(
+                                p,
+                                rechargeAmount
+                        )
                 )
         );
     }

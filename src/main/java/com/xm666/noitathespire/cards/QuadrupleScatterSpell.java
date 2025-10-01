@@ -1,11 +1,12 @@
 package com.xm666.noitathespire.cards;
 
+import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.xm666.noitathespire.actions.ScatterAction;
+import com.xm666.noitathespire.powers.Spread;
 import com.xm666.noitathespire.util.ModUtil;
 
 import static com.xm666.noitathespire.characters.Mina.PlayerColorEnum.MINA_PURPLE;
@@ -30,6 +31,7 @@ public class QuadrupleScatterSpell extends VariableCard {
 
     @Override
     public void upgrade() {
+        if (this.upgraded) return;
         this.upgradeName();
         this.upgradeMagicNumber(-1);
     }
@@ -40,7 +42,7 @@ public class QuadrupleScatterSpell extends VariableCard {
                 new DrawCardAction(variable)
         );
         this.addToBot(
-                new ScatterAction(magicNumber)
+                new ApplyPowerAction(p, p, new Spread(p, magicNumber))
         );
     }
 }

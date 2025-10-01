@@ -5,7 +5,7 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.xm666.noitathespire.actions.ScatterAction;
+import com.xm666.noitathespire.actions.DiscardAttackAction;
 import com.xm666.noitathespire.util.ModUtil;
 
 import static com.xm666.noitathespire.characters.Mina.PlayerColorEnum.MINA_PURPLE;
@@ -30,6 +30,7 @@ public class FormationOfHexagon extends VariableCard {
 
     @Override
     public void upgrade() {
+        if (this.upgraded) return;
         this.upgradeName();
         this.upgradeMagicNumber(-1);
     }
@@ -40,7 +41,7 @@ public class FormationOfHexagon extends VariableCard {
                 new DrawCardAction(variable)
         );
         this.addToBot(
-                new ScatterAction(magicNumber)
+                new DiscardAttackAction(p, magicNumber)
         );
     }
 }

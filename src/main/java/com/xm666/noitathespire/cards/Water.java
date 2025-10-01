@@ -31,6 +31,7 @@ public class Water extends CustomCard {
 
     @Override
     public void upgrade() {
+        if (this.upgraded) return;
         this.upgradeName();
         this.upgradeMagicNumber(2);
     }

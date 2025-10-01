@@ -42,7 +42,7 @@ public class WrapAction extends AbstractGameAction {
                 applyWrapping(this.p, this.p, this.p.hand.group);
                 this.isDone = true;
             } else {
-                AbstractDungeon.handCardSelectScreen.open(TEXT[0], this.amount, false);
+                AbstractDungeon.handCardSelectScreen.open(TEXT[0], this.amount, true);
                 this.tickDuration();
             }
         } else {

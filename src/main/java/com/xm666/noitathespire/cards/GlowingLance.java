@@ -7,8 +7,8 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.powers.DrawReductionPower;
 import com.xm666.noitathespire.mod.NoitaTheSpire;
+import com.xm666.noitathespire.powers.CastSpeed;
 import com.xm666.noitathespire.util.ModUtil;
 
 import static com.xm666.noitathespire.characters.Mina.PlayerColorEnum.MINA_PURPLE;
@@ -28,12 +28,13 @@ public class GlowingLance extends VariableCard {
     public GlowingLance() {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         this.damage = this.baseDamage = 20;
-        this.magicNumber = this.baseMagicNumber = 1;
-        this.variable = this.baseVariable = 9;
+        this.magicNumber = this.baseMagicNumber = 9;
+        this.variable = this.baseVariable = 1;
     }
 
     @Override
     public void upgrade() {
+        if (this.upgraded) return;
         this.upgradeName();
         this.upgradeDamage(6);
     }
@@ -58,10 +59,11 @@ public class GlowingLance extends VariableCard {
                 new ApplyPowerAction(
                         p,
                         p,
-                        new DrawReductionPower(
+                        new CastSpeed(
                                 p,
-                                magicNumber
-                        )
+                                -variable
+                        ),
+                        -variable
                 )
         );
     }

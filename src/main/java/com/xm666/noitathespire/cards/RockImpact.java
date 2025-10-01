@@ -37,6 +37,7 @@ public class RockImpact extends CustomCard {
 
     @Override
     public void upgrade() {
+        if (this.upgraded) return;
         this.upgradeName();
         this.upgradeDamage(5);
         this.rawDescription = CARD_STRINGS.UPGRADE_DESCRIPTION;

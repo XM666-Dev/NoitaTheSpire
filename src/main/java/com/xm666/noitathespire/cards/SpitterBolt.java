@@ -1,14 +1,15 @@
 package com.xm666.noitathespire.cards;
 
 import basemod.abstracts.CustomCard;
+import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.xm666.noitathespire.actions.ScatterAction;
 import com.xm666.noitathespire.mod.NoitaTheSpire;
+import com.xm666.noitathespire.powers.Spread;
 import com.xm666.noitathespire.util.ModUtil;
 
 import static com.xm666.noitathespire.characters.Mina.PlayerColorEnum.MINA_PURPLE;
@@ -33,6 +34,7 @@ public class SpitterBolt extends CustomCard {
 
     @Override
     public void upgrade() {
+        if (this.upgraded) return;
         this.upgradeName();
         this.upgradeDamage(3);
     }
@@ -50,7 +52,7 @@ public class SpitterBolt extends CustomCard {
                 )
         );
         this.addToBot(
-                new ScatterAction(magicNumber)
+                new ApplyPowerAction(p, p, new Spread(p, magicNumber))
         );
     }
 }

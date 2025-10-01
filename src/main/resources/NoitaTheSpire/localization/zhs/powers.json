@@ -12,10 +12,25 @@
       "每当你造成 #y伤害 时，给予 #b%s 层 #y弹跳 。"
     ]
   },
+  "NoitaTheSpire:CastSpeed": {
+    "NAME": "施放速度",
+    "DESCRIPTIONS": [
+      "下回合抽 #b%s 张牌。",
+      "下回合将 #b%s 张 #y延迟 加入你的抽牌堆顶部。"
+    ]
+  },
   "NoitaTheSpire:RechargeSpeed": {
     "NAME": "充能速度",
     "DESCRIPTIONS": [
-      "下一次 #y洗牌 时，抽 #b%s 张牌。"
+      "下一次 #y洗牌 时，抽 #b%s 张牌。",
+      "下一次 #y洗牌 时，将 #b%s 张 #y延迟 加入你的抽牌堆顶部。"
+    ]
+  },
+  "NoitaTheSpire:Spread": {
+    "NAME": "散射",
+    "DESCRIPTIONS": [
+      "本回合打出下 #b%s 张攻击牌时，丢弃一张随机攻击牌。",
+      "本回合免疫下 #b%s 层 #y散射 。"
     ]
   },
   "NoitaTheSpire:HighMana": {

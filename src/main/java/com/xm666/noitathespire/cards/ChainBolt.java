@@ -10,8 +10,8 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.monsters.MonsterGroup;
-import com.megacrit.cardcrawl.powers.DrawReductionPower;
 import com.xm666.noitathespire.mod.NoitaTheSpire;
+import com.xm666.noitathespire.powers.CastSpeed;
 import com.xm666.noitathespire.util.ModUtil;
 
 import java.util.ArrayList;
@@ -35,10 +35,12 @@ public class ChainBolt extends VariableCard {
         this.damage = this.baseDamage = 16;
         this.magicNumber = this.baseMagicNumber = 4;
         this.variable = this.baseVariable = 1;
+        this.isMultiDamage = true;
     }
 
     @Override
     public void upgrade() {
+        if (this.upgraded) return;
         this.upgradeName();
         this.upgradeDamage(4);
     }
@@ -62,7 +64,7 @@ public class ChainBolt extends VariableCard {
                             monster,
                             new DamageInfo(
                                     p,
-                                    damage
+                                    multiDamage[monsters.monsters.indexOf(monster)]
                             )
                     )
             );
@@ -71,10 +73,11 @@ public class ChainBolt extends VariableCard {
                 new ApplyPowerAction(
                         p,
                         p,
-                        new DrawReductionPower(
+                        new CastSpeed(
                                 p,
-                                variable
-                        )
+                                -variable
+                        ),
+                        -variable
                 )
         );
     }

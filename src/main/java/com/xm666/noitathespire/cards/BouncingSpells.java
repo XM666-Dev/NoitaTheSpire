@@ -31,6 +31,7 @@ public class BouncingSpells extends CustomCard {
 
     @Override
     public void upgrade() {
+        if (this.upgraded) return;
         this.upgradeName();
         this.upgradeBaseCost(0);
     }

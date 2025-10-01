@@ -32,6 +32,7 @@ public class Rock extends KineticCard {
 
     @Override
     public void upgrade() {
+        if (this.upgraded) return;
         this.upgradeName();
         this.cardsToPreview.upgrade();
         this.rawDescription = CARD_STRINGS.UPGRADE_DESCRIPTION;

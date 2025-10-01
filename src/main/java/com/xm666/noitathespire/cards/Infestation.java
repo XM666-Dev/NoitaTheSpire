@@ -39,6 +39,7 @@ public class Infestation extends VariableCard {
 
     @Override
     public void upgrade() {
+        if (this.upgraded) return;
         this.upgradeName();
         this.upgradeMagicNumber(1);
     }

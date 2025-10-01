@@ -34,6 +34,7 @@ public class Dive extends VariableCard {
 
     @Override
     public void upgrade() {
+        if (this.upgraded) return;
         this.upgradeName();
         this.upgradeBlock(2);
         this.upgradeMagicNumber(1);

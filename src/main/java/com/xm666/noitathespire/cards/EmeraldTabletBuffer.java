@@ -33,6 +33,7 @@ public class EmeraldTabletBuffer extends KineticCard {
 
     @Override
     public void upgrade() {
+        if (this.upgraded) return;
         this.upgradeName();
         this.upgradeBlock(5);
         this.upgradeDamage(5);

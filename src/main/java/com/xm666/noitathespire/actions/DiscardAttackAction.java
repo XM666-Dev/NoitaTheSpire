@@ -1,7 +1,7 @@
 package com.xm666.noitathespire.actions;
 
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
-import com.megacrit.cardcrawl.actions.utility.NewQueueCardAction;
+import com.megacrit.cardcrawl.actions.GameActionManager;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.AbstractCreature;
@@ -9,28 +9,26 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.UIStrings;
-import com.xm666.noitathespire.cards.KineticCard;
 
 import java.util.ArrayList;
 
-public class KickAction extends AbstractGameAction {
+public class DiscardAttackAction extends AbstractGameAction {
     public static final String[] TEXT;
     private static final UIStrings uiStrings;
-    private static final boolean canPickZero = true;
+    private static final boolean canPickZero = false;
 
     static {
-        uiStrings = CardCrawlGame.languagePack.getUIString("NoitaTheSpire:KickAction");
+        uiStrings = CardCrawlGame.languagePack.getUIString("DiscardAction");
         TEXT = uiStrings.TEXT;
     }
 
     private final AbstractPlayer p;
     private final int selectAmount;
     private final ArrayList<AbstractCard> cannotSelect = new ArrayList<>();
-    public boolean success;
 
-    public KickAction(AbstractCreature target, AbstractCreature source, int amount) {
-        this.setValues(target, source, amount);
-        this.actionType = ActionType.USE;
+    public DiscardAttackAction(AbstractCreature source, int amount) {
+        this.setValues(AbstractDungeon.player, source, amount);
+        this.actionType = ActionType.DISCARD;
         this.duration = 0.25F;
         this.p = AbstractDungeon.player;
         this.selectAmount = amount;
@@ -88,14 +86,13 @@ public class KickAction extends AbstractGameAction {
         this.p.hand.refreshHandLayout();
     }
 
-    private boolean isSelectable(AbstractCard c) {
-        return c instanceof KineticCard && c.hasEnoughEnergy();
+    private boolean isSelectable(AbstractCard card) {
+        return card.type.equals(AbstractCard.CardType.ATTACK);
     }
 
     private void apply(AbstractCard c) {
-        KineticCard kineticCard = (KineticCard) c;
-        kineticCard.kineticThisPlay = true;
-        this.addToTop(new NewQueueCardAction(c, target));
-        success = true;
+        this.p.hand.moveToDiscardPile(c);
+        c.triggerOnManualDiscard();
+        GameActionManager.incrementDiscard(false);
     }
 }

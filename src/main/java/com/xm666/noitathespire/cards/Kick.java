@@ -32,15 +32,18 @@ public class Kick extends CustomCard {
 
     public Kick() {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
-        this.damage = this.baseDamage = 4;
+        this.damage = this.baseDamage = 7;
         this.magicNumber = this.baseMagicNumber = 1;
-        this.selfRetain = true;
     }
 
     @Override
     public void upgrade() {
+        if (this.upgraded) return;
         this.upgradeName();
-        this.upgradeBaseCost(0);
+        this.upgradeDamage(2);
+        this.selfRetain = true;
+        this.rawDescription = CARD_STRINGS.UPGRADE_DESCRIPTION;
+        this.initializeDescription();
     }
 
     @Override
@@ -75,7 +78,7 @@ public class Kick extends CustomCard {
                 )
         );
         this.addToBot(
-                new KickAction(m, p)
+                new KickAction(m, p, 1)
         );
     }
 }

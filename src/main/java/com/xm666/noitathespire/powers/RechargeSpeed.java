@@ -2,12 +2,15 @@ package com.xm666.noitathespire.powers;
 
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;
+import com.megacrit.cardcrawl.actions.common.MakeTempCardInDrawPileAction;
 import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
+import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.helpers.ImageMaster;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
+import com.xm666.noitathespire.cards.Delay;
 import com.xm666.noitathespire.util.ModUtil;
 import com.xm666.noitathespire.util.OnShufflePower;
 
@@ -25,7 +28,6 @@ public class RechargeSpeed extends AbstractPower implements OnShufflePower {
         this.name = NAME;
         this.ID = POWER_ID;
         this.owner = owner;
-        this.type = PowerType.BUFF;
 
         this.amount = amount;
         this.canGoNegative = true;
@@ -37,24 +39,29 @@ public class RechargeSpeed extends AbstractPower implements OnShufflePower {
     }
 
     public void updateDescription() {
-        this.description = String.format(DESCRIPTIONS[0], this.amount);
+        this.description = String.format(DESCRIPTIONS[amount > 0 ? 0 : 1], Math.abs(this.amount));
     }
 
     @Override
     public void onShuffle() {
         this.flash();
-        this.addToBot(
-                new DrawCardAction(
-                        owner,
-                        amount
-                )
-        );
+        AbstractPlayer p = (AbstractPlayer) owner;
+        this.addToBot(amount > 0 ? new DrawCardAction(this.owner, this.amount) : new MakeTempCardInDrawPileAction(new Delay(), Math.abs(this.amount), false, false));
         this.addToBot(
                 new RemoveSpecificPowerAction(
-                        owner,
-                        owner,
+                        p,
+                        p,
                         this
                 )
         );
+    }
+
+    @Override
+    public void stackPower(int stackAmount) {
+        this.fontScale = 8.0F;
+        this.amount += stackAmount;
+        if (this.amount == 0) {
+            this.addToTop(new RemoveSpecificPowerAction(this.owner, this.owner, this));
+        }
     }
 }

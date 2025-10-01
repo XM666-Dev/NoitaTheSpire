@@ -13,7 +13,7 @@
   },
   "NoitaTheSpire:SpitterBolt": {
     "NAME": "分裂弹",
-    "DESCRIPTION": "造成 !D! 点伤害。 NL 丢弃 !M! 张随机攻击牌。"
+    "DESCRIPTION": "造成 !D! 点伤害。 NL 获得 !M! 层 noitathespire:散射 。"
   },
   "NoitaTheSpire:EnergySphere": {
     "NAME": "能量球体",
@@ -25,7 +25,8 @@
   },
   "NoitaTheSpire:Kick": {
     "NAME": "踢击",
-    "DESCRIPTION": " 保留 。 NL 造成 !D! 点伤害。 NL 给予 !M! 层 虚弱 。 NL noitathespire:踢击 。"
+    "DESCRIPTION": "造成 !D! 点伤害。 NL 给予 !M! 层 虚弱 。 NL noitathespire:踢击 。",
+    "UPGRADE_DESCRIPTION": " 保留 。 NL 造成 !D! 点伤害。 NL 给予 !M! 层 虚弱 。 NL noitathespire:踢击 。"
   },
   "NoitaTheSpire:Bomb": {
     "NAME": "炸弹",
@@ -33,11 +34,13 @@
   },
   "NoitaTheSpire:DisarmKick": {
     "NAME": "缴械踢击",
-    "DESCRIPTION": "造成 !D! 点伤害。 NL 给予 !M! 层 虚弱 。 NL 如果目标拥有非负层数的力量，使其失去 !NoitaTheSpire:V! 点力量。 NL noitathespire:踢击 。"
+    "DESCRIPTION": "造成 !D! 点伤害。 NL 如果目标拥有非负层数的力量，使其失去 !M! 点力量。 NL noitathespire:踢击 。",
+    "UPGRADE_DESCRIPTION": " 保留 。 NL 造成 !D! 点伤害。 NL 如果目标拥有非负层数的力量，使其失去 !M! 点力量。 NL noitathespire:踢击 。"
   },
   "NoitaTheSpire:RevengeKick": {
     "NAME": "复仇踢击",
-    "DESCRIPTION": "造成 !D! 点伤害。 NL 给予 !M! 层易伤。 NL 如果你在这回合打出的牌数等于 !NoitaTheSpire:V! 张，获得 noitathespire:反击 并结束你的回合。 NL noitathespire:踢击 。",
+    "DESCRIPTION": "造成 !D! 点伤害。 NL 如果你在这回合打出的牌数等于 !M! 张，获得 noitathespire:反击 并结束你的回合。 NL noitathespire:踢击 。",
+    "UPGRADE_DESCRIPTION": " 保留 。 NL 造成 !D! 点伤害。 NL 如果你在这回合打出的牌数等于 !M! 张，获得 noitathespire:反击 并结束你的回合。 NL noitathespire:踢击 。",
     "EXTENDED_DESCRIPTION": [
       " NL （已打出",
       " 张牌。）",
@@ -59,8 +62,8 @@
   },
   "NoitaTheSpire:RockImpact": {
     "NAME": "岩石冲击",
-    "DESCRIPTION": "造成 !D! 点伤害。 NL 将 !M! 张 *岩石 加入你的抽牌堆。 NL 消耗 。",
-    "UPGRADE_DESCRIPTION": "造成 !D! 点伤害。 NL 将 !M! 张 *岩石+ 加入你的抽牌堆。 NL 消耗 。"
+    "DESCRIPTION": "造成 !D! 点伤害。 NL 将 !M! 张 *岩石 加入你的弃牌堆。 NL 消耗 。",
+    "UPGRADE_DESCRIPTION": "造成 !D! 点伤害。 NL 将 !M! 张 *岩石+ 加入你的弃牌堆。 NL 消耗 。"
   },
   "NoitaTheSpire:TelekineticKick": {
     "NAME": "念动力踢击",
@@ -68,7 +71,7 @@
   },
   "NoitaTheSpire:Chainsaw": {
     "NAME": "链锯",
-    "DESCRIPTION": "造成 !D! 点伤害。 NL 丢弃 !NoitaTheSpire:V! 张随机攻击牌，若手牌中没有攻击牌，抽 !M! 张牌。 NL 获得 !NoitaTheSpire:C! 层 noitathespire:快速充能 。"
+    "DESCRIPTION": "造成 !D! 点伤害。 NL 如果你的手牌中没有其他攻击牌，抽 !M! 张牌。 NL 获得 !NoitaTheSpire:V! 层 noitathespire:散射 。 NL 获得 !NoitaTheSpire:C! 层 noitathespire:充能速度 。"
   },
   "NoitaTheSpire:BouncingSpells": {
     "NAME": "弹跳的法术",
@@ -100,19 +103,19 @@
   },
   "NoitaTheSpire:DoubleScatterSpell": {
     "NAME": "二重散射法术",
-    "DESCRIPTION": "抽 !NoitaTheSpire:V! 张牌。 NL 丢弃 !M! 张随机攻击牌。"
+    "DESCRIPTION": "抽 !NoitaTheSpire:V! 张牌。 NL 获得 !M! 层 noitathespire:散射 。"
   },
   "NoitaTheSpire:QuadrupleScatterSpell": {
     "NAME": "四重散射法术",
-    "DESCRIPTION": "抽 !NoitaTheSpire:V! 张牌。 NL 丢弃 !M! 张随机攻击牌。"
+    "DESCRIPTION": "抽 !NoitaTheSpire:V! 张牌。 NL 获得 !M! 层 noitathespire:散射 。"
   },
   "NoitaTheSpire:FormationOfHexagon": {
     "NAME": "阵型 - 六边形",
-    "DESCRIPTION": "抽 !NoitaTheSpire:V! 张牌。 NL 丢弃 !M! 张随机攻击牌。"
+    "DESCRIPTION": "抽 !NoitaTheSpire:V! 张牌。 NL 丢弃 !M! 张攻击牌。"
   },
   "NoitaTheSpire:Crouch": {
     "NAME": "蹲下",
-    "DESCRIPTION": "获得 !B! 点 格挡 。 NL 如果手牌中没有其他技能牌，再获得 !B! 点格挡。"
+    "DESCRIPTION": "获得 !B! 点 格挡 。 NL 如果你的手牌中没有其他技能牌，再获得 !B! 点格挡。"
   },
   "NoitaTheSpire:Jump": {
     "NAME": "跳跃",
@@ -145,7 +148,7 @@
   },
   "NoitaTheSpire:BloodMagic": {
     "NAME": "血液魔法",
-    "DESCRIPTION": "获得 [E]  [E]  [E] 。 NL 下回合多抽 !NoitaTheSpire:V! 张牌。 NL 获得 !NoitaTheSpire:C! 层 noitathespire:快速充能 。 NL 失去 !D! 点生命。"
+    "DESCRIPTION": "获得 [E]  [E]  [E] 。 NL 下回合多抽 !NoitaTheSpire:V! 张牌。 NL 获得 !NoitaTheSpire:C! 层 noitathespire:充能速度 。 NL 失去 !D! 点生命。"
   },
   "NoitaTheSpire:ChainBolt": {
     "NAME": "连环魔弹",
@@ -153,10 +156,14 @@
   },
   "NoitaTheSpire:GlowingLance": {
     "NAME": "闪耀之枪",
-    "DESCRIPTION": "造成 !D! 点伤害。 NL 下回合少抽 !M! 张牌。 noitathespire:专注 !NoitaTheSpire:V! 。"
+    "DESCRIPTION": "造成 !D! 点伤害。 NL 下回合少抽 !NoitaTheSpire:V! 张牌。 noitathespire:专注 !M! 。"
   },
   "NoitaTheSpire:DiggingBolt": {
     "NAME": "挖掘魔弹",
-    "DESCRIPTION": "去除一名敌人的所有 格挡 值。 NL 造成 !D! 点伤害。 NL 获得 !M! 层 快速充能 。"
+    "DESCRIPTION": "去除一名敌人的所有 格挡 值。 NL 造成 !D! 点伤害。 NL 获得 !M! 层 noitathespire:充能速度 。"
+  },
+  "NoitaTheSpire:Delay": {
+    "NAME": "延迟",
+    "DESCRIPTION": " 不能被打出 。 NL 当你抽到这张牌时， 消耗 。"
   }
 }

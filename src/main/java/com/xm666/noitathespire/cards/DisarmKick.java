@@ -1,5 +1,6 @@
 package com.xm666.noitathespire.cards;
 
+import basemod.abstracts.CustomCard;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
@@ -11,14 +12,13 @@ import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.FlightPower;
 import com.megacrit.cardcrawl.powers.StrengthPower;
-import com.megacrit.cardcrawl.powers.WeakPower;
 import com.xm666.noitathespire.actions.KickAction;
 import com.xm666.noitathespire.mod.NoitaTheSpire;
 import com.xm666.noitathespire.util.ModUtil;
 
 import static com.xm666.noitathespire.characters.Mina.PlayerColorEnum.MINA_PURPLE;
 
-public class DisarmKick extends VariableCard {
+public class DisarmKick extends CustomCard {
     public static final String ID = ModUtil.getId();
     private static final CardStrings CARD_STRINGS = CardCrawlGame.languagePack.getCardStrings(ID);
     private static final String NAME = CARD_STRINGS.NAME;
@@ -32,16 +32,18 @@ public class DisarmKick extends VariableCard {
 
     public DisarmKick() {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
-        this.damage = this.baseDamage = 4;
-        this.magicNumber = this.baseMagicNumber = 1;
-        this.variable = this.baseVariable = 2;
+        this.damage = this.baseDamage = 7;
+        this.magicNumber = this.baseMagicNumber = 2;
     }
 
     @Override
     public void upgrade() {
+        if (this.upgraded) return;
         this.upgradeName();
-        this.upgradeMagicNumber(1);
-        this.upgradeVariable(1);
+        this.upgradeDamage(2);
+        this.selfRetain = true;
+        this.rawDescription = CARD_STRINGS.UPGRADE_DESCRIPTION;
+        this.initializeDescription();
     }
 
     @Override
@@ -55,17 +57,6 @@ public class DisarmKick extends VariableCard {
                                 damage
                         ),
                         AbstractGameAction.AttackEffect.BLUNT_LIGHT
-                )
-        );
-        this.addToBot(
-                new ApplyPowerAction(
-                        m,
-                        p,
-                        new WeakPower(
-                                m,
-                                magicNumber,
-                                false
-                        )
                 )
         );
         this.addToBot(
@@ -83,14 +74,14 @@ public class DisarmKick extends VariableCard {
                             p,
                             new StrengthPower(
                                     m,
-                                    -variable
+                                    -magicNumber
                             ),
-                            -variable
+                            -magicNumber
                     )
             );
         }
         this.addToBot(
-                new KickAction(m, p)
+                new KickAction(m, p, 1)
         );
     }
 }

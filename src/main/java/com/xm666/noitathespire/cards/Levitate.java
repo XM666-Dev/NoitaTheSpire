@@ -30,6 +30,7 @@ public class Levitate extends CustomCard {
 
     @Override
     public void upgrade() {
+        if (this.upgraded) return;
         this.upgradeName();
         this.upgradeBlock(3);
     }

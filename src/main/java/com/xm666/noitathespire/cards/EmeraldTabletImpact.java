@@ -32,6 +32,7 @@ public class EmeraldTabletImpact extends KineticCard {
 
     @Override
     public void upgrade() {
+        if (this.upgraded) return;
         this.upgradeName();
         this.upgradeDamage(5);
     }

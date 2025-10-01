@@ -32,6 +32,7 @@ public class EnergySphere extends CustomCard {
 
     @Override
     public void upgrade() {
+        if (this.upgraded) return;
         this.upgradeName();
         this.upgradeDamage(4);
     }

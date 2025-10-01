@@ -31,6 +31,7 @@ public class RubberBall extends CustomCard {
 
     @Override
     public void upgrade() {
+        if (this.upgraded) return;
         this.upgradeName();
         this.upgradeDamage(2);
     }

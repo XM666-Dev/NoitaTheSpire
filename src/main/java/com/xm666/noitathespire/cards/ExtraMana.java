@@ -6,7 +6,7 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.powers.DrawReductionPower;
+import com.xm666.noitathespire.powers.CastSpeed;
 import com.xm666.noitathespire.util.ModUtil;
 
 import static com.xm666.noitathespire.characters.Mina.PlayerColorEnum.MINA_PURPLE;
@@ -31,6 +31,7 @@ public class ExtraMana extends VariableCard {
 
     @Override
     public void upgrade() {
+        if (this.upgraded) return;
         this.upgradeName();
         this.upgradeMagicNumber(1);
         this.rawDescription = CARD_STRINGS.UPGRADE_DESCRIPTION;
@@ -42,8 +43,17 @@ public class ExtraMana extends VariableCard {
         this.addToBot(
                 new GainEnergyAction(magicNumber)
         );
+
         this.addToBot(
-                new ApplyPowerAction(p, p, new DrawReductionPower(p, variable))
+                new ApplyPowerAction(
+                        p,
+                        p,
+                        new CastSpeed(
+                                p,
+                                -variable
+                        ),
+                        -variable
+                )
         );
     }
 }

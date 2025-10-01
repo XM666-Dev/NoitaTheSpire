@@ -7,7 +7,7 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.powers.DrawCardNextTurnPower;
+import com.xm666.noitathespire.powers.CastSpeed;
 import com.xm666.noitathespire.powers.RechargeSpeed;
 import com.xm666.noitathespire.util.ModUtil;
 
@@ -36,6 +36,7 @@ public class BloodMagic extends VariableCard {
 
     @Override
     public void upgrade() {
+        if (this.upgraded) return;
         this.upgradeName();
         this.upgradeDamage(-1);
     }
@@ -46,7 +47,7 @@ public class BloodMagic extends VariableCard {
                 new GainEnergyAction(magicNumber)
         );
         this.addToBot(
-                new ApplyPowerAction(p, p, new DrawCardNextTurnPower(p, variable))
+                new ApplyPowerAction(p, p, new CastSpeed(p, variable))
         );
         this.addToBot(
                 new ApplyPowerAction(p, p, new RechargeSpeed(p, rechargeAmount))

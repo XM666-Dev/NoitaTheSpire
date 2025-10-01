@@ -31,6 +31,7 @@ public class MyriadSpell extends VariableCard {
 
     @Override
     public void upgrade() {
+        if (this.upgraded) return;
         this.upgradeName();
         this.upgradeBaseCost(1);
     }
