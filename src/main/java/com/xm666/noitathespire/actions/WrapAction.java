@@ -2,6 +2,7 @@ package com.xm666.noitathespire.actions;
 
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
+import com.megacrit.cardcrawl.actions.utility.WaitAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.AbstractCreature;
@@ -9,6 +10,7 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.UIStrings;
+import com.xm666.noitathespire.mod.NoitaTheSpire;
 import com.xm666.noitathespire.powers.Wrapping;
 
 import java.util.Collection;
@@ -60,6 +62,8 @@ public class WrapAction extends AbstractGameAction {
     }
 
     private void applyWrapping(AbstractCreature target, AbstractCreature source, Collection<AbstractCard> cards) {
+        NoitaTheSpire.playAudio("item_move_success");
+        this.addToBot(new WaitAction(0.25F));
         Wrapping wrapping = (Wrapping) target.getPower(Wrapping.POWER_ID);
         if (wrapping == null) {
             this.addToTop(new ApplyPowerAction(target, source, new Wrapping(target, 0, cards)));

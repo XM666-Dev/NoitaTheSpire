@@ -21,7 +21,7 @@
   },
   "NoitaTheSpire:Levitate": {
     "NAME": "浮空",
-    "DESCRIPTION": "获得 !B! 点 格挡 。"
+    "DESCRIPTION": "获得 !B! 点 格挡 。 NL 消耗 。"
   },
   "NoitaTheSpire:Kick": {
     "NAME": "踢击",
@@ -125,6 +125,10 @@
     "NAME": "潜水",
     "DESCRIPTION": "获得 !B! 点 格挡 。 NL 获得 !M! 层 noitathespire:多层护甲 。 NL 获得 !NoitaTheSpire:V! 层 虚弱 。"
   },
+  "NoitaTheSpire:Foothold": {
+    "NAME": "落脚点",
+    "DESCRIPTION": "增加 !M! 张 *浮空 到你的手牌。"
+  },
   "NoitaTheSpire:FasterMovement": {
     "NAME": "更快移动",
     "DESCRIPTION": "获得 !M! 点 敏捷 。"
@@ -132,6 +136,20 @@
   "NoitaTheSpire:FasterLevitation": {
     "NAME": "更快漂浮",
     "DESCRIPTION": "从 *浮空 中获得的格挡增加 !M! 。"
+  },
+  "NoitaTheSpire:StrongLevitation": {
+    "NAME": "强漂浮力",
+    "DESCRIPTION": "在你的回合开始时，增加一张 *浮空 到你的手牌。",
+    "UPGRADE_DESCRIPTION": " 固有 。 NL 在你的回合开始时，增加一张 *浮空 到你的手牌。"
+  },
+  "NoitaTheSpire:LevitationTrail": {
+    "NAME": "漂浮轨迹",
+    "DESCRIPTION": "每当你打出一张 *浮空 ，增加1张 *轨迹光束 到你的手牌。",
+    "UPGRADE_DESCRIPTION": "每当你打出一张 *浮空 ，增加1张 *轨迹光束+1 到你的手牌。"
+  },
+  "NoitaTheSpire:TrailBeam": {
+    "NAME": "轨迹光束",
+    "DESCRIPTION": "造成 !D! 点伤害。 NL 消耗 。"
   },
   "NoitaTheSpire:Water": {
     "NAME": "清水",
@@ -161,6 +179,15 @@
   "NoitaTheSpire:DiggingBolt": {
     "NAME": "挖掘魔弹",
     "DESCRIPTION": "去除一名敌人的所有 格挡 值。 NL 造成 !D! 点伤害。 NL 获得 !M! 层 noitathespire:充能速度 。"
+  },
+  "NoitaTheSpire:Arrow": {
+    "NAME": "箭矢",
+    "DESCRIPTION": "造成 !D! 点伤害。 NL 每当你抽到一张牌，这张牌在本回合的伤害增加10%。",
+    "EXTENDED_DESCRIPTION": [
+      " NL （已抽到",
+      " 张牌。）",
+      " 张牌。）"
+    ]
   },
   "NoitaTheSpire:Delay": {
     "NAME": "延迟",

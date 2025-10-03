@@ -1,16 +1,18 @@
 package com.xm666.noitathespire.cards;
 
 import basemod.abstracts.CustomCard;
+import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.xm666.noitathespire.actions.WrapAction;
+import com.xm666.noitathespire.mod.NoitaTheSpire;
+import com.xm666.noitathespire.powers.StrongLevitate;
 import com.xm666.noitathespire.util.ModUtil;
 
 import static com.xm666.noitathespire.characters.Mina.PlayerColorEnum.MINA_PURPLE;
 
-public class Wrap extends CustomCard {
+public class StrongLevitation extends CustomCard {
     public static final String ID = ModUtil.getId();
     private static final CardStrings CARD_STRINGS = CardCrawlGame.languagePack.getCardStrings(ID);
     private static final String NAME = CARD_STRINGS.NAME;
@@ -22,20 +24,26 @@ public class Wrap extends CustomCard {
     private static final CardRarity RARITY = CardRarity.UNCOMMON;
     private static final CardTarget TARGET = CardTarget.SELF;
 
-    public Wrap() {
+    public StrongLevitation() {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
-        this.magicNumber = this.baseMagicNumber = 2;
+        this.magicNumber = this.baseMagicNumber = 1;
+        this.cardsToPreview = new Levitate();
     }
 
     @Override
     public void upgrade() {
         if (this.upgraded) return;
         this.upgradeName();
-        this.upgradeBaseCost(0);
+        this.isInnate = true;
+        this.rawDescription = CARD_STRINGS.UPGRADE_DESCRIPTION;
+        this.initializeDescription();
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        this.addToBot(new WrapAction(p, p, magicNumber));
+        NoitaTheSpire.playAudio("perk_misc");
+        this.addToBot(
+                new ApplyPowerAction(p, p, new StrongLevitate(p, magicNumber))
+        );
     }
 }
