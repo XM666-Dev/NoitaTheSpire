@@ -58,7 +58,7 @@ public class DiscardAttackAction extends AbstractGameAction {
             }
 
             this.p.hand.group.removeAll(this.cannotSelect);
-            AbstractDungeon.handCardSelectScreen.open(TEXT[0], selectAmount, canPickZero, canPickZero, false, false);
+            AbstractDungeon.handCardSelectScreen.open(TEXT[0], selectAmount, false, canPickZero, false, false, canPickZero);
             AbstractDungeon.player.hand.applyPowers();
             this.tickDuration();
             return;

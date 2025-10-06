@@ -44,7 +44,7 @@ public class WrapAction extends AbstractGameAction {
                 applyWrapping(this.p, this.p, this.p.hand.group);
                 this.isDone = true;
             } else {
-                AbstractDungeon.handCardSelectScreen.open(TEXT[0], this.amount, true);
+                AbstractDungeon.handCardSelectScreen.open(TEXT[0], this.amount, false, false, false, false, true);
                 this.tickDuration();
             }
         } else {
@@ -62,11 +62,13 @@ public class WrapAction extends AbstractGameAction {
     }
 
     private void applyWrapping(AbstractCreature target, AbstractCreature source, Collection<AbstractCard> cards) {
-        NoitaTheSpire.playAudio("item_move_success");
-        this.addToBot(new WaitAction(0.25F));
+        for (int i = 0; i < cards.size(); ++i) {
+            NoitaTheSpire.playAudio("item_move_success");
+            this.addToBot(new WaitAction(0.25F));
+        }
         Wrapping wrapping = (Wrapping) target.getPower(Wrapping.POWER_ID);
         if (wrapping == null) {
-            this.addToTop(new ApplyPowerAction(target, source, new Wrapping(target, 0, cards)));
+            this.addToTop(new ApplyPowerAction(target, source, new Wrapping(target, -1, cards)));
             return;
         }
         wrapping.flash();

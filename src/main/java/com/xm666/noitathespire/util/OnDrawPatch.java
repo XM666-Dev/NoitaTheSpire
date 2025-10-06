@@ -33,7 +33,7 @@ public class OnDrawPatch {
         newUpdatedActions.add(new WeakReference<>(__instance));
         for (AbstractCard c : AbstractDungeon.player.hand.group) {
             if (c instanceof OnDrawCard) {
-                ((OnDrawCard) c).OnDraw(__instance.amount);
+                ((OnDrawCard) c).onDraw(__instance.amount);
             }
         }
     }

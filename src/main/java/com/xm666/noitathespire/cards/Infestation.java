@@ -8,7 +8,7 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.monsters.MonsterGroup;
-import com.xm666.noitathespire.actions.BouncyAction;
+import com.xm666.noitathespire.actions.LimitedBouncyAction;
 import com.xm666.noitathespire.mod.NoitaTheSpire;
 import com.xm666.noitathespire.powers.Bouncing;
 import com.xm666.noitathespire.powers.BouncingCast;
@@ -31,10 +31,10 @@ public class Infestation extends VariableCard {
 
     public Infestation() {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
-        this.damage = this.baseDamage = 2;
+        this.damage = this.baseDamage = 3;
         this.magicNumber = this.baseMagicNumber = 2;
         this.variable = this.baseVariable = 1;
-        this.bouncingCount = 3;
+        this.bouncingCount = 2;
     }
 
     @Override
@@ -73,7 +73,7 @@ public class Infestation extends VariableCard {
         for (int i = 0; i < count; ++i) {
             AbstractMonster monster = monsters.getRandomMonster(true);
             this.addToBot(
-                    new BouncyAction(
+                    new LimitedBouncyAction(
                             monster,
                             new DamageInfo(
                                     p,

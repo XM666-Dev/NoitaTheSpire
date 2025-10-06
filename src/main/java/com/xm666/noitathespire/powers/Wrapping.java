@@ -48,7 +48,9 @@ public class Wrapping extends AbstractPower implements OnShufflePower {
     }
 
     public void updateDescription() {
-        this.description = String.format(DESCRIPTIONS[0], String.join(",", cards.stream().map(c -> c.name).toArray(String[]::new)));
+        String[] names = cards.stream().map(c -> c.name.replace(" ", "")).toArray(String[]::new);
+        String cardsString = String.join(",", names);
+        this.description = String.format(DESCRIPTIONS[0], cardsString);
     }
 
     public void stackPower(Collection<AbstractCard> cards) {

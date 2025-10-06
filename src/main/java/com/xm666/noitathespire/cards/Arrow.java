@@ -2,6 +2,7 @@ package com.xm666.noitathespire.cards;
 
 import basemod.abstracts.CustomCard;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
+import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -9,6 +10,7 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.xm666.noitathespire.mod.NoitaTheSpire;
+import com.xm666.noitathespire.powers.Spread;
 import com.xm666.noitathespire.util.ModUtil;
 import com.xm666.noitathespire.util.OnDrawCard;
 
@@ -30,6 +32,7 @@ public class Arrow extends CustomCard implements OnDrawCard {
     public Arrow() {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         this.damage = this.baseDamage = 10;
+        this.magicNumber = this.baseMagicNumber = 2;
     }
 
     @Override
@@ -52,6 +55,17 @@ public class Arrow extends CustomCard implements OnDrawCard {
                         AbstractGameAction.AttackEffect.SLASH_HORIZONTAL
                 )
         );
+        this.addToBot(
+                new ApplyPowerAction(
+                        p,
+                        p,
+                        new Spread(
+                                p,
+                                -magicNumber
+                        ),
+                        -magicNumber
+                )
+        );
     }
 
     @Override
@@ -61,7 +75,7 @@ public class Arrow extends CustomCard implements OnDrawCard {
     }
 
     @Override
-    public void OnDraw(int amount) {
+    public void onDraw(int amount) {
         drawCountThisTurn += amount;
     }
 

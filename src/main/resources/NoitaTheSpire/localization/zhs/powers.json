@@ -86,5 +86,23 @@
     "DESCRIPTIONS": [
       "每当你打出一张 #y浮空 ，增加 #b1 张 #y轨迹光束%s 到你的手牌。"
     ]
+  },
+  "NoitaTheSpire:FreezeFielding": {
+    "NAME": "冰冻领域",
+    "DESCRIPTIONS": [
+      "每受到一次攻击伤害，增加 #b1 张 #y结冰%1$s 到你的手牌。 NL 每抽到一张状态牌，都将其 #y消耗 并增加 #b1 张 #y结冰%1$s 到你的手牌。"
+    ]
+  },
+  "NoitaTheSpire:SlimeBlooding": {
+    "NAME": "粘稠血液",
+    "DESCRIPTIONS": [
+      "每当你受到伤害时，增加 #b%s 张 #y粘液 到你的手牌。 NL 每当你抽到一张 #y粘液 时，抽 #b1 张牌。"
+    ]
+  },
+  "NoitaTheSpire:Resistance": {
+    "NAME": "耐性",
+    "DESCRIPTIONS": [
+      "受到的伤害减少 #b25% 。"
+    ]
   }
 }

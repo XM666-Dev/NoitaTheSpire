@@ -83,7 +83,7 @@
   },
   "NoitaTheSpire:Infestation": {
     "NAME": "侵扰",
-    "DESCRIPTION": "随机对敌人造成 !D! 点伤害 !M! 次。 NL 当前每有一名敌人，额外造成 !NoitaTheSpire:V! 次伤害。 NL 获得 !NoitaTheSpire:C! 次 !D! 层 noitathespire:弹跳 。 NL noitathespire:弹性 。"
+    "DESCRIPTION": "随机对敌人造成 !D! 点伤害 !M! 次。 NL 当前每有一名敌人，额外造成 !NoitaTheSpire:V! 次伤害。 NL 获得 !D! x !NoitaTheSpire:C! 层 noitathespire:弹跳 。 NL noitathespire:弱弹性 。"
   },
   "NoitaTheSpire:Wrap": {
     "NAME": "回绕",
@@ -99,7 +99,8 @@
   },
   "NoitaTheSpire:MyriadSpell": {
     "NAME": "无尽法术",
-    "DESCRIPTION": "抽牌直到将抽牌堆抽空。 NL 本回合抽牌堆抽空前，每打出一张牌，抽 !NoitaTheSpire:V! 张牌。 NL 消耗 。"
+    "DESCRIPTION": "抽牌直到将抽牌堆抽空。 NL 本回合抽牌堆抽空前，每打出一张牌，抽 !NoitaTheSpire:V! 张牌。 NL 消耗 。 NL 虚无 。",
+    "UPGRADE_DESCRIPTION": "抽牌直到将抽牌堆抽空。 NL 本回合抽牌堆抽空前，每打出一张牌，抽 !NoitaTheSpire:V! 张牌。 NL 消耗 。"
   },
   "NoitaTheSpire:DoubleScatterSpell": {
     "NAME": "二重散射法术",
@@ -151,6 +152,32 @@
     "NAME": "轨迹光束",
     "DESCRIPTION": "造成 !D! 点伤害。 NL 消耗 。"
   },
+  "NoitaTheSpire:FreezeField": {
+    "NAME": "冰冻领域",
+    "DESCRIPTION": "每受到一次攻击伤害，增加1张 *结冰 到你的手牌。 NL 每抽到一张状态牌，都将其消耗并增加1张 *结冰 到你的手牌。",
+    "UPGRADE_DESCRIPTION": "每受到一次攻击伤害，增加1张 *结冰+1 到你的手牌。 NL 每抽到一张状态牌，都将其消耗并增加1张 *结冰+1 到你的手牌。"
+  },
+  "NoitaTheSpire:Freeze": {
+    "NAME": "结冰",
+    "DESCRIPTION": " 保留 。 NL 当你受到攻击时， 消耗 ，并获得 !B! 点 格挡 。 NL 消耗 。"
+  },
+  "NoitaTheSpire:SlimeBlood": {
+    "NAME": "粘稠血液",
+    "DESCRIPTION": "受到的伤害减少25%。 NL 每当你受到伤害时，增加1张 *粘液 到你的手牌。 NL 每当你抽到一张 *粘液 时，抽1张牌。"
+  },
+  "NoitaTheSpire:EnergyShield": {
+    "NAME": "能量盾",
+    "DESCRIPTION": " 保留 。 NL 每当这张牌被 保留 时，获得 !B! 点 格挡 。 NL 每当你被突破 格挡 时，丢弃这张牌。"
+  },
+  "NoitaTheSpire:FreeFall": {
+    "NAME": "自由落体",
+    "DESCRIPTION": "你在这个回合内每打出过一张技能牌，就获得一次 !B! 点 格挡 。 NL 将弃牌堆中的 !M! 张技能牌放入你的手牌。",
+    "EXTENDED_DESCRIPTION": [
+      " NL （已打出",
+      " 张技能牌。）",
+      " 张技能牌。）"
+    ]
+  },
   "NoitaTheSpire:Water": {
     "NAME": "清水",
     "DESCRIPTION": " 保留 。 NL 消耗手牌中所有 状态牌 。 NL 消耗抽牌堆中 !M! 张随机 状态牌 。 NL 消耗 。"
@@ -182,7 +209,7 @@
   },
   "NoitaTheSpire:Arrow": {
     "NAME": "箭矢",
-    "DESCRIPTION": "造成 !D! 点伤害。 NL 每当你抽到一张牌，这张牌在本回合的伤害增加10%。",
+    "DESCRIPTION": "造成 !D! 点伤害。 NL 每当你抽到一张牌，这张牌在本回合的伤害增加10%。 NL 失去 !M! 层 noitathespire:散射 。",
     "EXTENDED_DESCRIPTION": [
       " NL （已抽到",
       " 张牌。）",

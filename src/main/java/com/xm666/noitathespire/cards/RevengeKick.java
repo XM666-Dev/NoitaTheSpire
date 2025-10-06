@@ -78,14 +78,14 @@ public class RevengeKick extends CustomCard {
                         kickAction
                 )
         );
-        this.rawDescription = CARD_STRINGS.DESCRIPTION;
+        this.rawDescription = this.upgraded ? CARD_STRINGS.UPGRADE_DESCRIPTION : CARD_STRINGS.DESCRIPTION;
         this.initializeDescription();
     }
 
     public void applyPowers() {
         super.applyPowers();
         int count = AbstractDungeon.actionManager.cardsPlayedThisTurn.size();
-        this.rawDescription = CARD_STRINGS.DESCRIPTION;
+        this.rawDescription = this.upgraded ? CARD_STRINGS.UPGRADE_DESCRIPTION : CARD_STRINGS.DESCRIPTION;
         this.rawDescription = this.rawDescription + CARD_STRINGS.EXTENDED_DESCRIPTION[0] + count;
         if (count == 1) {
             this.rawDescription = this.rawDescription + CARD_STRINGS.EXTENDED_DESCRIPTION[1];
@@ -97,11 +97,11 @@ public class RevengeKick extends CustomCard {
     }
 
     public void onMoveToDiscard() {
-        this.rawDescription = CARD_STRINGS.DESCRIPTION;
+        this.rawDescription = this.upgraded ? CARD_STRINGS.UPGRADE_DESCRIPTION : CARD_STRINGS.DESCRIPTION;
         this.initializeDescription();
     }
 
     public void triggerOnGlowCheck() {
-        this.glowColor = AbstractDungeon.actionManager.cardsPlayedThisTurn.size() == 2 ? AbstractCard.GOLD_BORDER_GLOW_COLOR : AbstractCard.BLUE_BORDER_GLOW_COLOR;
+        this.glowColor = AbstractDungeon.actionManager.cardsPlayedThisTurn.size() == magicNumber - 1 ? AbstractCard.GOLD_BORDER_GLOW_COLOR : AbstractCard.BLUE_BORDER_GLOW_COLOR;
     }
 }
