@@ -45,7 +45,7 @@ public class Spread extends AbstractPower {
     @Override
     public void onUseCard(AbstractCard card, UseCardAction action) {
         super.onUseCard(card, action);
-        if (card.type.equals(AbstractCard.CardType.ATTACK)) {
+        if (amount > 0 && card.type.equals(AbstractCard.CardType.ATTACK)) {
             this.flash();
             this.addToBot(
                     new ScatterAction(1)

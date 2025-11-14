@@ -43,7 +43,7 @@ public class BouncingCast extends AbstractPower {
     @Override
     public void onAttack(DamageInfo info, int damageAmount, AbstractCreature target) {
         super.onAttack(info, damageAmount, target);
-        if (info.owner != owner && info.type == DamageInfo.DamageType.NORMAL && damageAmount > 0) {
+        if (info.owner != target && info.type == DamageInfo.DamageType.NORMAL && damageAmount > 0) {
             this.flash();
             NoitaTheSpire.playAudio("bullet_bounce_0");
             if (BouncyAction.isBouncy)
