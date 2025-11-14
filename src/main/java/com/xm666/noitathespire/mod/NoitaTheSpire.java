@@ -210,6 +210,9 @@ public class NoitaTheSpire implements EditCharactersSubscriber, EditStringsSubsc
         addAudio("bomb_0", 3);
         addAudio("bullet_laser_0", 3);
         addAudio("bullet_arrow_0", 3);
+        addAudio("shield_activate_0", 3);
+        addAudio("shield_block_0", 3);
+        addAudio("shield_deactivate");
     }
 
     private Map<String, String> loadKeywords(String filepath) {

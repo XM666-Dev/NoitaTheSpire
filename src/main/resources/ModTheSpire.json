@@ -2,10 +2,10 @@
   "modid": "NoitaTheSpire",
   "name": "NoitaTheSpire",
   "author_list": [
-    "XM666"
+    "ImmortalDamned"
   ],
-  "description": "",
-  "version": "1.0-SNAPSHOT",
+  "description": "The Noita in Slay the Spire.",
+  "version": "1.0.1",
   "sts_version": "12-22-2020",
   "mts_version": "3.23.2",
   "dependencies": [

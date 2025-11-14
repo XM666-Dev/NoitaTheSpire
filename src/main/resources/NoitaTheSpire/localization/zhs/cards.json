@@ -132,7 +132,7 @@
   },
   "NoitaTheSpire:FasterMovement": {
     "NAME": "更快移动",
-    "DESCRIPTION": "获得 !M! 点 敏捷 。"
+    "DESCRIPTION": "将你当前的敏捷增加50%。 NL 获得 !M! 点 敏捷 。"
   },
   "NoitaTheSpire:FasterLevitation": {
     "NAME": "更快漂浮",
@@ -178,6 +178,65 @@
       " 张技能牌。）"
     ]
   },
+  "NoitaTheSpire:CircleOfShielding": {
+    "NAME": "遮蔽之环",
+    "DESCRIPTION": "每回合结束时，获得20点 格挡 。 NL 受到攻击时，减少与所造成的伤害相等的数值。 NL 消耗 。"
+  },
+  "NoitaTheSpire:ProjectileEnergyShield": {
+    "NAME": "投射物能量盾",
+    "DESCRIPTION": "丢弃任意张攻击牌，每丢弃一张牌，获得 !B! 点 格挡 。"
+  },
+  "NoitaTheSpire:FireballOrbit": {
+    "NAME": "火球环绕",
+    "DESCRIPTION": "丢弃任意张攻击牌，每丢弃一张牌，对随机敌人造成 !D! 点伤害。"
+  },
+  "NoitaTheSpire:MagicGuard": {
+    "NAME": "魔法护卫",
+    "DESCRIPTION": "在你的抽牌堆中加入 !M! 张 *护卫之光 。 NL 抽 !NoitaTheSpire:V! 张牌。",
+    "UPGRADE_DESCRIPTION": "在你的抽牌堆中加入 !M! 张 *护卫之光+ 。 NL 抽 !NoitaTheSpire:V! 张牌。"
+  },
+  "NoitaTheSpire:GuardingLight": {
+    "NAME": "护卫之光",
+    "DESCRIPTION": "造成 !D! 点伤害。 NL 获得 !B! 点 格挡 。 NL 下回合多抽 !M! 张牌。 NL 消耗 。"
+  },
+  "NoitaTheSpire:TeleportBolt": {
+    "NAME": "传送魔弹",
+    "DESCRIPTION": "获得 !B! 点格挡。 NL 将手牌中的一张牌放到你的抽牌堆顶部。"
+  },
+  "NoitaTheSpire:SmallTeleportBolt": {
+    "NAME": "小传送魔弹",
+    "DESCRIPTION": "获得 !B! 点格挡。 NL 抽 !M! 张牌。"
+  },
+  "NoitaTheSpire:ConcentratedSpells": {
+    "NAME": "汇聚的法术",
+    "DESCRIPTION": "获得 !M! 层 noitathespire:伤害提升 。 NL 在每回合开始时少抽 !NoitaTheSpire:V! 张牌。"
+  },
+  "NoitaTheSpire:HeavySpread": {
+    "NAME": "沉重散射",
+    "DESCRIPTION": "丢弃所有攻击牌，每丢弃一张牌，下回合多抽 !M! 张牌。 NL 下回合多抽 !NoitaTheSpire:V! 张牌。 NL 获得 !NoitaTheSpire:C! 层 noitathespire:充能速度 。"
+  },
+  "NoitaTheSpire:ReduceRechargeTime": {
+    "NAME": "缩减充能时间",
+    "DESCRIPTION": "下回合多抽 !M! 张牌。 NL 获得 !NoitaTheSpire:V! 层 noitathespire:充能速度 。"
+  },
+  "NoitaTheSpire:WandRefresh": {
+    "NAME": "魔杖刷新",
+    "DESCRIPTION": "丢弃所有手牌。 NL 将你的弃牌堆洗牌后放入你的抽牌堆。 NL 抽 !M! 张牌。 NL 消耗 。",
+    "UPGRADE_DESCRIPTION": "丢弃所有手牌。 NL 将你的弃牌堆洗牌后放入你的抽牌堆。 NL 抽 !M! 张牌。"
+  },
+  "NoitaTheSpire:BoomerangSpells": {
+    "NAME": "回旋的法术",
+    "DESCRIPTION": "每回合开始时，获得 !M! 层 noitathespire:散射 。 NL 每丢弃一张攻击牌，在下回合开始时将其移回你的手牌。 NL 获得 !NoitaTheSpire:V! 层 noitathespire:伤害提升 。"
+  },
+  "NoitaTheSpire:WandTinker": {
+    "NAME": "随时修补魔杖",
+    "DESCRIPTION": "每次洗牌时，选择将抽牌堆中 !M! 张牌移到抽牌堆顶部，消耗 !M! 张牌。"
+  },
+  "NoitaTheSpire:LongDistanceCast": {
+    "NAME": "远距离施放",
+    "DESCRIPTION": "从抽牌堆中选择一张攻击牌或技能牌放入你的手牌。 NL 消耗 。",
+    "UPGRADE_DESCRIPTION": "从抽牌堆中选择一张攻击牌或技能牌放入你的手牌。"
+  },
   "NoitaTheSpire:Water": {
     "NAME": "清水",
     "DESCRIPTION": " 保留 。 NL 消耗手牌中所有 状态牌 。 NL 消耗抽牌堆中 !M! 张随机 状态牌 。 NL 消耗 。"
@@ -193,7 +252,7 @@
   },
   "NoitaTheSpire:BloodMagic": {
     "NAME": "血液魔法",
-    "DESCRIPTION": "获得 [E]  [E]  [E] 。 NL 下回合多抽 !NoitaTheSpire:V! 张牌。 NL 获得 !NoitaTheSpire:C! 层 noitathespire:充能速度 。 NL 失去 !D! 点生命。"
+    "DESCRIPTION": "获得 [E]  [E]  [E] 。 NL 下回合多抽 !NoitaTheSpire:V! 张牌。 NL 获得 !NoitaTheSpire:C! 层 noitathespire:充能速度 。 NL 失去 !NoitaTheSpire:L! 点生命。"
   },
   "NoitaTheSpire:ChainBolt": {
     "NAME": "连环魔弹",

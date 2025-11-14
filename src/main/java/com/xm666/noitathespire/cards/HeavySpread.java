@@ -1,19 +1,18 @@
 package com.xm666.noitathespire.cards;
 
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
-import com.megacrit.cardcrawl.actions.common.GainEnergyAction;
-import com.megacrit.cardcrawl.actions.common.LoseHPAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.xm666.noitathespire.actions.HeavySpreadAction;
 import com.xm666.noitathespire.powers.CastSpeed;
 import com.xm666.noitathespire.powers.RechargeSpeed;
 import com.xm666.noitathespire.util.ModUtil;
 
 import static com.xm666.noitathespire.characters.Mina.PlayerColorEnum.MINA_PURPLE;
 
-public class BloodMagic extends VariableCard {
+public class HeavySpread extends VariableCard {
     public static final String ID = ModUtil.getId();
     private static final CardStrings CARD_STRINGS = CardCrawlGame.languagePack.getCardStrings(ID);
     private static final String NAME = CARD_STRINGS.NAME;
@@ -22,31 +21,28 @@ public class BloodMagic extends VariableCard {
     private static final int COST = 0;
     private static final CardType TYPE = CardType.SKILL;
     private static final CardColor COLOR = MINA_PURPLE;
-    private static final CardRarity RARITY = CardRarity.RARE;
+    private static final CardRarity RARITY = CardRarity.UNCOMMON;
     private static final CardTarget TARGET = CardTarget.SELF;
     private final int rechargeAmount;
-    private final int baseHpLose;
-    private int hpLose;
 
-    public BloodMagic() {
+    public HeavySpread() {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
-        this.magicNumber = this.baseMagicNumber = 3;
-        this.variable = this.baseVariable = 3;
-        this.rechargeAmount = 3;
-        this.hpLose = this.baseHpLose = 4;
+        this.magicNumber = this.baseMagicNumber = 1;
+        this.variable = this.baseVariable = 1;
+        this.rechargeAmount = 2;
     }
 
     @Override
     public void upgrade() {
         if (this.upgraded) return;
         this.upgradeName();
-        hpLose -= 1;
+        this.upgradeVariable(1);
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         this.addToBot(
-                new GainEnergyAction(magicNumber)
+                new HeavySpreadAction(p, magicNumber)
         );
         this.addToBot(
                 new ApplyPowerAction(p, p, new CastSpeed(p, variable))
@@ -54,24 +50,12 @@ public class BloodMagic extends VariableCard {
         this.addToBot(
                 new ApplyPowerAction(p, p, new RechargeSpeed(p, rechargeAmount))
         );
-        this.addToBot(
-                new LoseHPAction(p, p, hpLose)
-        );
-    }
-
-    public boolean isModified(char c) {
-        if (c == 'L') {
-            return upgraded;
-        }
-        return false;
     }
 
     @Override
     public int baseValue(char c) {
         if (c == 'C') {
             return rechargeAmount;
-        } else if (c == 'L') {
-            return baseHpLose;
         }
         return super.baseValue(c);
     }
@@ -80,17 +64,7 @@ public class BloodMagic extends VariableCard {
     public int value(char c) {
         if (c == 'C') {
             return rechargeAmount;
-        } else if (c == 'L') {
-            return hpLose;
         }
         return super.value(c);
-    }
-
-    @Override
-    public boolean upgraded(char c) {
-        if (c == 'L') {
-            return upgraded;
-        }
-        return false;
     }
 }

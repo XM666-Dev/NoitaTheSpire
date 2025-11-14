@@ -7,6 +7,7 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.DexterityPower;
+import com.xm666.noitathespire.actions.MultiplyYourDexterityAction;
 import com.xm666.noitathespire.mod.NoitaTheSpire;
 import com.xm666.noitathespire.util.ModUtil;
 
@@ -33,12 +34,15 @@ public class FasterMovement extends CustomCard {
     public void upgrade() {
         if (this.upgraded) return;
         this.upgradeName();
-        this.upgradeMagicNumber(2);
+        this.upgradeMagicNumber(1);
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         NoitaTheSpire.playAudio("perk_misc");
+        this.addToBot(
+                new MultiplyYourDexterityAction(p, 0.5F)
+        );
         this.addToBot(
                 new ApplyPowerAction(p, p, new DexterityPower(p, magicNumber))
         );

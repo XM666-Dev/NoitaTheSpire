@@ -104,5 +104,29 @@
     "DESCRIPTIONS": [
       "受到的伤害减少 #b25% 。"
     ]
+  },
+  "NoitaTheSpire:Shield": {
+    "NAME": "遮蔽",
+    "DESCRIPTIONS": [
+      "每回合结束时，获得 #b%s 点 #y格挡 。 NL 受到攻击时，失去与所造成的伤害相等的层数。"
+    ]
+  },
+  "NoitaTheSpire:DamageBoost": {
+    "NAME": "伤害提升",
+    "DESCRIPTIONS": [
+      "每当你抽到一张攻击牌，获得 #b%s 点临时 力量 。"
+    ]
+  },
+  "NoitaTheSpire:BoomerangCast": {
+    "NAME": "回旋的法术",
+    "DESCRIPTIONS": [
+      "每回合开始时，获得 #b%s 层 #y散射 。 NL 每丢弃一张攻击牌，在下回合开始时将其移回你的手牌。"
+    ]
+  },
+  "NoitaTheSpire:WandTinkering": {
+    "NAME": "随时修补魔杖",
+    "DESCRIPTIONS": [
+      "每次洗牌时，选择将抽牌堆中 #b%1$s 张牌移到抽牌堆顶部，消耗 #b%1$s 张牌。"
+    ]
   }
 }

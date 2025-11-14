@@ -9,7 +9,7 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.ImageMaster;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
-import com.xm666.noitathespire.actions.DrawToTopAction;
+import com.xm666.noitathespire.actions.DeckToTopAction;
 import com.xm666.noitathespire.util.ModUtil;
 import com.xm666.noitathespire.util.OnShufflePower;
 
@@ -61,9 +61,7 @@ public class Wrapping extends AbstractPower implements OnShufflePower {
     public void onShuffle() {
         this.flash();
         AbstractDungeon.actionManager.addToTop(
-                new DrawToTopAction(
-                        owner,
-                        owner,
+                new DeckToTopAction(
                         cards
                 )
         );

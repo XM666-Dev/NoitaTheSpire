@@ -67,7 +67,8 @@ public class Chainsaw extends VariableCard {
                         new Spread(
                                 p,
                                 variable
-                        )
+                        ),
+                        variable
                 )
         );
         this.addToBot(

@@ -16,7 +16,6 @@ import java.util.ArrayList;
 public class KickAction extends AbstractGameAction {
     public static final String[] TEXT;
     private static final UIStrings uiStrings;
-    private static final boolean canPickZero = true;
 
     static {
         uiStrings = CardCrawlGame.languagePack.getUIString("NoitaTheSpire:KickAction");
@@ -27,6 +26,8 @@ public class KickAction extends AbstractGameAction {
     private final int selectAmount;
     private final ArrayList<AbstractCard> cannotSelect = new ArrayList<>();
     public boolean success;
+    protected boolean anyNumber;
+    protected boolean canPickZero;
 
     public KickAction(AbstractCreature target, AbstractCreature source, int amount) {
         this.setValues(target, source, amount);
@@ -34,6 +35,8 @@ public class KickAction extends AbstractGameAction {
         this.duration = 0.25F;
         this.p = AbstractDungeon.player;
         this.selectAmount = amount;
+        this.anyNumber = false;
+        this.canPickZero = true;
     }
 
     public void update() {
@@ -60,7 +63,7 @@ public class KickAction extends AbstractGameAction {
             }
 
             this.p.hand.group.removeAll(this.cannotSelect);
-            AbstractDungeon.handCardSelectScreen.open(TEXT[0], selectAmount, false, canPickZero, false, false, canPickZero);
+            AbstractDungeon.handCardSelectScreen.open(TEXT[0], selectAmount, anyNumber, canPickZero, false, false, canPickZero);
             AbstractDungeon.player.hand.applyPowers();
             this.tickDuration();
             return;
@@ -92,7 +95,7 @@ public class KickAction extends AbstractGameAction {
         return c instanceof KineticCard && c.hasEnoughEnergy();
     }
 
-    private void apply(AbstractCard c) {
+    protected void apply(AbstractCard c) {
         KineticCard kineticCard = (KineticCard) c;
         kineticCard.kineticThisPlay = true;
         this.addToTop(new NewQueueCardAction(c, target));

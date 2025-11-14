@@ -4,9 +4,9 @@ import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 
-public class DiscardDrawBottomAction extends AbstractGameAction {
+public class DiscardDeckBottomAction extends AbstractGameAction {
 
-    public DiscardDrawBottomAction(int amount) {
+    public DiscardDeckBottomAction(int amount) {
         this.amount = amount;
     }
 

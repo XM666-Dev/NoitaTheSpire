@@ -42,7 +42,7 @@ public class QuadrupleScatterSpell extends VariableCard {
                 new DrawCardAction(variable)
         );
         this.addToBot(
-                new ApplyPowerAction(p, p, new Spread(p, magicNumber))
+                new ApplyPowerAction(p, p, new Spread(p, magicNumber), magicNumber)
         );
     }
 }

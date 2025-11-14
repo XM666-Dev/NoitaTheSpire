@@ -15,7 +15,6 @@ import java.util.ArrayList;
 public class DiscardAttackAction extends AbstractGameAction {
     public static final String[] TEXT;
     private static final UIStrings uiStrings;
-    private static final boolean canPickZero = false;
 
     static {
         uiStrings = CardCrawlGame.languagePack.getUIString("DiscardAction");
@@ -25,6 +24,8 @@ public class DiscardAttackAction extends AbstractGameAction {
     private final AbstractPlayer p;
     private final int selectAmount;
     private final ArrayList<AbstractCard> cannotSelect = new ArrayList<>();
+    protected boolean anyNumber;
+    protected boolean canPickZero;
 
     public DiscardAttackAction(AbstractCreature source, int amount) {
         this.setValues(AbstractDungeon.player, source, amount);
@@ -32,6 +33,8 @@ public class DiscardAttackAction extends AbstractGameAction {
         this.duration = 0.25F;
         this.p = AbstractDungeon.player;
         this.selectAmount = amount;
+        this.anyNumber = false;
+        this.canPickZero = false;
     }
 
     public void update() {
@@ -58,7 +61,7 @@ public class DiscardAttackAction extends AbstractGameAction {
             }
 
             this.p.hand.group.removeAll(this.cannotSelect);
-            AbstractDungeon.handCardSelectScreen.open(TEXT[0], selectAmount, false, canPickZero, false, false, canPickZero);
+            AbstractDungeon.handCardSelectScreen.open(TEXT[0], selectAmount, anyNumber, canPickZero, false, false, canPickZero);
             AbstractDungeon.player.hand.applyPowers();
             this.tickDuration();
             return;
@@ -90,7 +93,7 @@ public class DiscardAttackAction extends AbstractGameAction {
         return card.type.equals(AbstractCard.CardType.ATTACK);
     }
 
-    private void apply(AbstractCard c) {
+    protected void apply(AbstractCard c) {
         this.p.hand.moveToDiscardPile(c);
         c.triggerOnManualDiscard();
         GameActionManager.incrementDiscard(false);

@@ -8,5 +8,24 @@
     "TEXT": [
       "打出"
     ]
+  },
+  "NoitaTheSpire:DeckToTopAction": {
+    "TEXT": [
+      "选择一张牌来放到你抽牌堆的顶端。",
+      "选择 ",
+      " 张牌来放到你抽牌堆的顶端。"
+    ]
+  },
+  "NoitaTheSpire:DeckExhaustAction": {
+    "TEXT": [
+      "选择一张牌来消耗。",
+      "选择 ",
+      " 张牌来消耗。"
+    ]
+  },
+  "NoitaTheSpire:AttackOrSkillFromDeckToHandAction": {
+    "TEXT": [
+      "选择一张攻击牌或技能牌放入你的手牌。"
+    ]
   }
 }
