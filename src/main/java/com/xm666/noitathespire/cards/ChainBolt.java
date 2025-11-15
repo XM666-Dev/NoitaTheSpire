@@ -76,8 +76,7 @@ public class ChainBolt extends VariableCard {
                         new CastSpeed(
                                 p,
                                 -variable
-                        ),
-                        -variable
+                        )
                 )
         );
     }

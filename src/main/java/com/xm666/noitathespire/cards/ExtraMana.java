@@ -51,8 +51,7 @@ public class ExtraMana extends VariableCard {
                         new CastSpeed(
                                 p,
                                 -variable
-                        ),
-                        -variable
+                        )
                 )
         );
     }

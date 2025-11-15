@@ -62,8 +62,7 @@ public class Arrow extends CustomCard implements OnDrawCard {
                         new Spread(
                                 p,
                                 -magicNumber
-                        ),
-                        -magicNumber
+                        )
                 )
         );
     }

@@ -66,13 +66,13 @@ public class Wrapping extends AbstractPower implements OnShufflePower {
                 )
         );
         shuffledThisTurn = true;
+        usedCards.clear();
     }
 
     @Override
-    public void atStartOfTurn() {
-        super.atStartOfTurn();
+    public void atEndOfTurn(boolean isPlayer) {
+        super.atEndOfTurn(isPlayer);
         shuffledThisTurn = false;
-        usedCards.clear();
     }
 
     @Override

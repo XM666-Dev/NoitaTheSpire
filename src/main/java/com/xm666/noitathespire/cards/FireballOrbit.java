@@ -25,7 +25,7 @@ public class FireballOrbit extends CustomCard {
 
     public FireballOrbit() {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
-        this.damage = this.baseDamage = 10;
+        this.damage = this.baseDamage = 7;
     }
 
     @Override
@@ -37,22 +37,6 @@ public class FireballOrbit extends CustomCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        //this.addToBot(
-        //        new MakeTempCardInHandAction(
-        //                new Fireball(),
-        //                BaseMod.MAX_HAND_SIZE - p.hand.size()
-        //        )
-        //);
-        //this.addToBot(
-        //        new ApplyPowerAction(
-        //                p,
-        //                p,
-        //                new FireballOrbiting(
-        //                        p,
-        //                        magicNumber
-        //                )
-        //        )
-        //);
         this.addToBot(
                 new DamageAndDiscardAttackAction(
                         p,

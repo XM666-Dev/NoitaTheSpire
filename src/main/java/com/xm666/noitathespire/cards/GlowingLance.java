@@ -59,8 +59,7 @@ public class GlowingLance extends VariableCard {
                         new CastSpeed(
                                 p,
                                 -variable
-                        ),
-                        -variable
+                        )
                 )
         );
     }

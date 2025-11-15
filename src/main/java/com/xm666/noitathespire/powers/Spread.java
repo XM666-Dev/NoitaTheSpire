@@ -51,7 +51,7 @@ public class Spread extends AbstractPower {
                     new ScatterAction(1)
             );
             this.addToBot(
-                    new ApplyPowerAction(owner, owner, new Spread(owner, -1), -1)
+                    new ApplyPowerAction(owner, owner, new Spread(owner, -1))
             );
         }
     }

@@ -41,7 +41,7 @@ public class WandTinkering extends AbstractPower implements OnShufflePower {
 
     @Override
     public void onShuffle() {
-        this.addToBot(new DeckToTopAction(amount, true));
-        this.addToBot(new DeckExhaustAction(amount, true));
+        this.addToTop(new DeckToTopAction(amount, true));
+        this.addToTop(new DeckExhaustAction(amount, true));
     }
 }

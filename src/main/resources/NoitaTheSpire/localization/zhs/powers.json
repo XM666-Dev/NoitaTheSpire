@@ -3,13 +3,13 @@
     "NAME": "弹跳",
     "DESCRIPTIONS": [
       "每回合结束时，将层数减少 #b2 并移到一名随机敌人身上，对其造成 #b%s 点伤害。 NL 在死亡时立即触发以上效果。",
-      "下回合结束时，对一名随机敌人造成 #b%s 点伤害。"
+      "本回合结束时，对一名随机敌人造成 #b%s 点伤害。"
     ]
   },
   "NoitaTheSpire:BouncingCast": {
     "NAME": "弹跳的法术",
     "DESCRIPTIONS": [
-      "每当你造成 #y伤害 时，给予 #b%s 层 #y弹跳 。"
+      "每当你造成 #y攻击 伤害，给予 #b%s #y层弹跳。"
     ]
   },
   "NoitaTheSpire:CastSpeed": {
@@ -114,7 +114,7 @@
   "NoitaTheSpire:DamageBoost": {
     "NAME": "伤害提升",
     "DESCRIPTIONS": [
-      "每当你抽到一张攻击牌，获得 #b%s 点临时 力量 。"
+      "每当你抽到一张攻击牌，获得 #b%s 点临时 #y力量 。"
     ]
   },
   "NoitaTheSpire:BoomerangCast": {
@@ -126,7 +126,7 @@
   "NoitaTheSpire:WandTinkering": {
     "NAME": "随时修补魔杖",
     "DESCRIPTIONS": [
-      "每次洗牌时，选择将抽牌堆中 #b%1$s 张牌移到抽牌堆顶部，消耗 #b%1$s 张牌。"
+      "每次洗牌时，从抽牌堆中选择最多 #b%1$s 张牌 #y消耗 ，将 #b%1$s 张牌放到顶部。"
     ]
   }
 }

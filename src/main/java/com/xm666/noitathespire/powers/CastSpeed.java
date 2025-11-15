@@ -47,7 +47,7 @@ public class CastSpeed extends AbstractPower {
         super.atStartOfTurn();
         this.flash();
         AbstractPlayer p = (AbstractPlayer) owner;
-        this.addToBot(amount > 0 ? new DrawCardAction(this.owner, this.amount) : new MakeTempCardInDrawPileAction(new Delay(), Math.abs(this.amount), false, false));
+        this.addToBot(amount > 0 ? new DrawCardAction(owner, amount) : new MakeTempCardInDrawPileAction(new Delay(), -amount, false, false));
         this.addToBot(
                 new RemoveSpecificPowerAction(
                         p,

@@ -46,14 +46,14 @@ public class RechargeSpeed extends AbstractPower implements OnShufflePower {
     public void onShuffle() {
         this.flash();
         AbstractPlayer p = (AbstractPlayer) owner;
-        this.addToBot(amount > 0 ? new DrawCardAction(this.owner, this.amount) : new MakeTempCardInDrawPileAction(new Delay(), Math.abs(this.amount), false, false));
-        this.addToBot(
+        this.addToTop(
                 new RemoveSpecificPowerAction(
                         p,
                         p,
                         this
                 )
         );
+        this.addToTop(amount > 0 ? new DrawCardAction(owner, amount) : new MakeTempCardInDrawPileAction(new Delay(), -amount, false, false));
     }
 
     @Override

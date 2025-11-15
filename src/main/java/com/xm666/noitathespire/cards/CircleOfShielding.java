@@ -26,7 +26,7 @@ public class CircleOfShielding extends CustomCard {
 
     public CircleOfShielding() {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
-        this.magicNumber = this.baseMagicNumber = 20;
+        this.magicNumber = this.baseMagicNumber = 25;
         this.exhaust = true;
     }
 

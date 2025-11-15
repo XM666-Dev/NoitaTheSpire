@@ -42,7 +42,7 @@ public class DoubleScatterSpell extends VariableCard {
                 new DrawCardAction(variable)
         );
         this.addToBot(
-                new ApplyPowerAction(p, p, new Spread(p, magicNumber), magicNumber)
+                new ApplyPowerAction(p, p, new Spread(p, magicNumber))
         );
     }
 }

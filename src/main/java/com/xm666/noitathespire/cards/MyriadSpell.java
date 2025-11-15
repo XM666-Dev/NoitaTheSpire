@@ -35,6 +35,8 @@ public class MyriadSpell extends VariableCard {
         if (this.upgraded) return;
         this.upgradeName();
         this.isEthereal = false;
+        this.rawDescription = CARD_STRINGS.UPGRADE_DESCRIPTION;
+        this.initializeDescription();
     }
 
     @Override

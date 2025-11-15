@@ -53,8 +53,7 @@ public class BoomerangCast extends AbstractPower implements OnManualDiscardPower
                         new Spread(
                                 owner,
                                 amount
-                        ),
-                        amount
+                        )
                 )
         );
         for (AbstractCard c : cardsDiscardedLastTurn) {

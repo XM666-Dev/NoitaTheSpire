@@ -46,8 +46,8 @@ public class DamageBoost extends AbstractPower {
         super.onCardDraw(card);
         if (card.type == AbstractCard.CardType.ATTACK) {
             this.flash();
-            this.addToBot(new ApplyPowerAction(owner, owner, new StrengthPower(owner, amount), amount));
-            this.addToBot(new ApplyPowerAction(owner, owner, new LoseStrengthPower(owner, amount), amount));
+            this.addToBot(new ApplyPowerAction(owner, owner, new StrengthPower(owner, amount)));
+            this.addToBot(new ApplyPowerAction(owner, owner, new LoseStrengthPower(owner, amount)));
         }
     }
 }

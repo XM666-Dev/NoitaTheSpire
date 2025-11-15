@@ -75,8 +75,7 @@ public class DisarmKick extends CustomCard {
                             new StrengthPower(
                                     m,
                                     -magicNumber
-                            ),
-                            -magicNumber
+                            )
                     )
             );
         }

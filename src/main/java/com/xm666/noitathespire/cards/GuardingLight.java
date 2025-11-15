@@ -2,7 +2,6 @@ package com.xm666.noitathespire.cards;
 
 import basemod.abstracts.CustomCard;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
-import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
@@ -10,7 +9,6 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.xm666.noitathespire.powers.CastSpeed;
 import com.xm666.noitathespire.util.ModUtil;
 
 public class GuardingLight extends CustomCard {
@@ -29,7 +27,6 @@ public class GuardingLight extends CustomCard {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         this.damage = this.baseDamage = 6;
         this.block = this.baseBlock = 6;
-        this.magicNumber = this.baseMagicNumber = 1;
         this.exhaust = true;
     }
 
@@ -59,9 +56,6 @@ public class GuardingLight extends CustomCard {
                         p,
                         block
                 )
-        );
-        this.addToBot(
-                new ApplyPowerAction(p, p, new CastSpeed(p, magicNumber))
         );
     }
 }

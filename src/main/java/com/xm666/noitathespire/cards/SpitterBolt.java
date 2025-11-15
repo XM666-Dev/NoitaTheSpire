@@ -52,7 +52,7 @@ public class SpitterBolt extends CustomCard {
                 )
         );
         this.addToBot(
-                new ApplyPowerAction(p, p, new Spread(p, magicNumber), magicNumber)
+                new ApplyPowerAction(p, p, new Spread(p, magicNumber))
         );
     }
 }
